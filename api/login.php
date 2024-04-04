@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo 'GET';
     $username = $_GET['username'];
     $password = $_GET['password'];
+    echo $username;
+    echo $password;
     
     require_once 'db.php';
 
