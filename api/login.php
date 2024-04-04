@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo $password;
     
     $sql = "SELECT * FROM users WHERE username = '$username'";
-
-    
     $result = $conn->query($sql);
+    echo "<br>";
+    echo $result;
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
