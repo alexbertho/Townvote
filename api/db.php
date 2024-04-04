@@ -1,10 +1,11 @@
 <?php
 $servername = "localhost";
 $username = "toor";
-$password = "pO0b4f5#1";
+$password = "\$ll5Yn793";
+$dbname = "db";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $dbname), ;
 
 // Check connection
 if ($conn->connect_error) {
@@ -18,4 +19,6 @@ $result = $conn->query($sql);
 echo "---<br>";
 echo $result;
 echo "<br>----";
+//git add api/login.php api/db.php && git commit -m "cpt" && git push
+
 ?>
