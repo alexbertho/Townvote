@@ -7,13 +7,13 @@ if (isset($_SESSION['user_id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    echo 'GET';
+    require_once 'db.php';
     $username = $_GET['username'];
     $password = $_GET['password'];
     echo $username;
+    echo "<br>";
     echo $password;
     
-    require_once 'db.php';
 
 }
 
