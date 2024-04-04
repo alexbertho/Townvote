@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo "<br>";
     echo $password;
     
-    $sql = "SELECT * FROM users WHERE username = '$username'";
+    $sql = "SELECT * FROM clients WHERE username = '$username'";
     $result = $conn->query($sql);
     echo "<br>";
     echo $result;
