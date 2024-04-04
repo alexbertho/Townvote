@@ -15,4 +15,7 @@ echo "Connected successfully";
 
 $sql = "SELECT * FROM clients";
 $result = $conn->query($sql);
+echo "---<br>";
+echo $result;
+echo "<br>----";
 ?>
