@@ -1,7 +1,7 @@
 ## Projet dans le cadre de l'UE Technologies du Web
 ![image](https://odyssee.univ-cotedazur.fr/medias/photo/ucalogoqlarge-inversenew_1662386550360-png)
 
-# Everyvote
+# Townvote
 
 ## Application de Sondages en Temps Réel
 
@@ -22,3 +22,4 @@ Ce projet utilise les technologies suivantes :
 - **JavaScript :** Pour la manipulation du DOM et la gestion des événements en temps réel.
 - **PHP :** Pour la gestion des sessions utilisateur et la génération de contenu dynamique.
 - **AJAX :** Pour les mises à jour asynchrones des résultats des sondages en temps réel.
+- **MySQL :** Pour le stockage des données des utilisateurs et des sondages.

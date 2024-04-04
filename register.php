@@ -10,9 +10,9 @@
     <body>
 
         <header>
-            <h1>EveryVote</h1>
+            <h1>TownVote</h1>
             <hr>
-            <h2>Connexion</h2>
+            <h2>S'enregistrer</h2>
         </header>
 
         <div class="flex-container">
@@ -27,10 +27,13 @@
                         <img src="img/password.png" alt="password">
                         <input type="password" name="password" id="password" placeholder="Mot de passe" required>
                     </div>
-                    <button class="loginbutton" type="submit">Se connecter</button>
+                    <div class = "icon-login">
+                        <img src="img/password.png" alt="password">
+                        <input type="password" name="password" id="password" placeholder="Confirmer mot de passe" required>
+                    </div>
                     <hr>
-                    <button class="loginbutton" type="button" onclick="location.href='register.php';">S'inscrire</button>
-                    
+                    <button class="loginbutton" type="button">S'inscrire</button>
+
                 </form>
             </div>        
         </div>
