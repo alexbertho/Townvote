@@ -2,6 +2,8 @@
 
 html, body { 
     height: 100%;
+    background: rgb(87,79,232);
+    background: linear-gradient(90deg, rgba(87,79,232,1) 13%, rgba(21,145,201,1) 48%, rgba(0,212,255,1) 100%);
 }
 
 .flex-container {
@@ -11,17 +13,60 @@ html, body {
     align-items: center; 
     flex-direction: column;  
 
-    background-color: #f5e8d1;
     height: inherit;
     gap: 5px;
 
 }
 
 .flex-container > div{
-    background: #ffecb3;
-    border: 3px solid #ffcc80;
     border-radius: 5px;
     padding: 8px;
+}
+
+.flex-container > .login-form > form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > hr {
+    margin-top: 0.35em;
+    border: 1px solid #fff;
+}
+
+.loginbutton {
+    border: none;
+    background-color: #fff;
+    height: 2em;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-top: 0.5em;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+.loginbutton:hover {
+    background-color: #f0f0f0;
+    color: #333; 
+    cursor: pointer;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-weight: 600;
+}
+
+input:focus {
+    outline: none;
+}
+
+::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
 }
 
 header {
@@ -31,8 +76,40 @@ header {
     width: 100%;
 }
 
+header > hr {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #fff;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 header > h1 {
     font-size: 2em;
     font-family: 'Montserrat', sans-serif;
-    color: #254882;
+    color: #fff;
+}
+
+header > h2 {
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+
+.icon-login {
+    display: flex;
+    border: 3px solid rgba(0,212,255,1);
+    border-radius: 5px;
+
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+
+}
+
+.icon-login > img {
+    width: 2.5em;
 }
