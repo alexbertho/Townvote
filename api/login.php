@@ -18,19 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     
     $sql = "SELECT * FROM clients";
     $result = $conn->query($sql);
+
     echo "<br>";
     echo $result;
     echo "<br>";
     echo "aaaaaaaaaaaaaaaa";
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['user_id'] = $row['id'];
-            header("Location: index.php");
-            exit();
-        }
-    }
-    $error = 'Invalid username or password';
+    
+    // if ($result->num_rows > 0) {
+    //     $row = $result->fetch_assoc();
+    //     if (password_verify($password, $row['password'])) {
+    //         $_SESSION['user_id'] = $row['id'];
+    //         header("Location: index.php");
+    //         exit();
+    //     }
+    // }
+    // $error = 'Invalid username or password';
 }
 
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
