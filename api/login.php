@@ -19,11 +19,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $sql = "SELECT * FROM clients";
     $result = $conn->query($sql);
 
-    echo "<br>";
+    $sql = "SELECT * FROM clients";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+        echo $row['id'] . " - login: " . $row['login'] . " - password: " . $row['pass'] . "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
+    echo "---<br>";
     echo $result;
-    echo "<br>";
-    echo "aaaaaaaaaaaaaaaa";
-    
+    echo "<br>----";
+    //git add api/login.php api/db.php && git commit -m "cpt" && git push
+    //git add api/db.php api/login.php && git commit -m "maj auto" && git push
+
     // if ($result->num_rows > 0) {
     //     $row = $result->fetch_assoc();
     //     if (password_verify($password, $row['password'])) {
