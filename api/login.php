@@ -23,10 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo "<br>";
     echo $password;
     
-    $sql = "SELECT * FROM clients";
-    $result = $conn->query($sql);
-
-    $sql = "SELECT * FROM clients";
+    $sql = "SELECT * FROM clients WHERE login = '$username'";
+    // $sql = "SELECT * FROM clients";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
