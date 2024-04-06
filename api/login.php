@@ -7,10 +7,17 @@ if (isset($_SESSION['user_id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (isset($_GET['username']) && isset($_GET['password'])) {
+        $username = $_GET['username'];
+        $password = $_GET['password'];
+    } else {
+        http_response_code(403);
+        exit(); // Terminer le script pour éviter toute exécution supplémentaire
+    }
     require_once 'db.php';
 
-    $username = $_GET['username'];
-    $password = $_GET['password'];
+
+    echo "test";
     echo "<br>";
     echo $username;
     echo "<br>";
@@ -48,8 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //     require_once 'db.php';
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
+//     $username = $_GET['username'];
+//     $password = $_GET['password'];
     
 //     $sql = "SELECT * FROM users WHERE username = '$username'";
 
