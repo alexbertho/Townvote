@@ -17,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result->num_rows == 1) { // Si un utilisateur a été trouvé
         $row = $result->fetch_assoc();
         if ($password == $row['pass']) { // Si le mot de passe est correct
-            $data = [
-                'success' => true,
-                'message' => 'Login successful'
-            ];
+            // $data = [
+            //     'success' => true,
+            //     'message' => 'Login successful'
+            // ];
             $_SESSION['user_id'] = $row['id'];
             header("Location: ../index.php");
             exit();
