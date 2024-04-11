@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $username = $_POST['username'];
         $password = $_POST['password'];
+        header("Location: ../index.php");
     } else {
         http_response_code(403);
         exit(); // Terminer le script pour éviter toute exécution supplémentaire
@@ -42,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     error_log("login542.php", 0);
-
+    error_log(json_encode($data), 0);
     // Set the content type header
     header('Content-Type: application/json');
     // error_log(json_encode($data), 0);
