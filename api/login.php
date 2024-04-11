@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo $password;
     
     $sql = "SELECT * FROM clients WHERE login = '$username'";
+
     // $sql = "SELECT * FROM clients";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
@@ -36,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     echo "----";
     echo "<br>";
-    echo $result;
+    echo "$result";
     echo "<br>";
     echo "----";
     //git add api/login.php api/db.php && git commit -m "cpt" && git push
