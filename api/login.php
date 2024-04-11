@@ -7,23 +7,8 @@ if (isset($_SESSION['user_id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (isset($_GET['username']) && isset($_GET['password'])) {
-        $username = $_GET['username'];
-        $password = $_GET['password'];
-    } else {
-        http_response_code(403);
-        exit(); // Terminer le script pour éviter toute exécution supplémentaire
-    }
-    require_once 'db.php';
-
-
-    echo "<br> username:";
-    echo $username;
-    echo "<br> password:";
-    echo $password;
-    echo "<br>";
-    echo "<br>";
     
+
     $sql = "SELECT * FROM clients WHERE login = '$username'";
 
     $result = $conn->query($sql);
@@ -47,6 +32,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        $name = $_POST['username'];
+        $password = $_POST['password'];
+    } else {
+        http_response_code(403);
+        exit(); // Terminer le script pour éviter toute exécution supplémentaire
+    }
 
+    $sql = "SELECT * FROM clients WHERE login = '$username'";
+    $result = $conn->query($sql);
+    if ($result->num_rows == 1) { // Si un utilisateur a été trouvé
+        $row = $result->fetch_assoc();
+        if ($password == $row['pass']) { // Si le mot de passe est correct
+            $data = [
+                'success' => true,
+                'message' => 'Login successful'
+            ];
+            $_SESSION['user_id'] = $row['id'];
+        }
+    } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
+        $data = [
+            'success' => false,
+            'message' => 'Username not found'
+        ];
+    } else { 
+        $data = [
+            'success' => false,
+            'message' => 'Incorrect password'
+        ];
+    }
+
+    $jsonData = json_encode($data);
+
+    // Set the content type header
+    header('Content-Type: application/json');
+
+    // Output the JSON data
+    echo $jsonData;
+}
+?>
 
 ?>
