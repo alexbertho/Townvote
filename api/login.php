@@ -18,10 +18,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'success' => false,
         'message' => 'Incorrect password'
     ];
-    $data = [
-        'success' => true,
-        'message' => 'cpt'
-    ];
+    if ($result->num_rows == 1) { // Si un utilisateur a été trouvé
+        $row = $result->fetch_assoc();
+        if ($password == $row['pass']) { // Si le mot de passe est correct
+            $data = [
+                'success' => true,
+                'message' => 'Login successful'
+            ];
+            $_SESSION['user_id'] = $row['id'];
+            // header("Location: ../index.php");
+        }
+    } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
+        $data = [
+            'success' => false,
+            'message' => 'Username not found'
+        ];
+    }
 
     echo json_encode($data);
 }
