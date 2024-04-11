@@ -3,7 +3,7 @@ function fetchLoginCredentials(username, password) {
   formData.append('username', username);
   formData.append('password', password);
 
-  fetch('api/test.php', {
+  fetch('api/login.php', {
     method: 'POST',
     body: formData
   })
