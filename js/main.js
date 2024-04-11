@@ -14,8 +14,6 @@ async function fetchLoginCredentials(username, password) {
     }
 
     const data = await response.json();
-
-    console.log(data);
     
     if (data.success) {
       location.href = 'index.php';
@@ -24,8 +22,7 @@ async function fetchLoginCredentials(username, password) {
       message.innerHTML = data.message;
     }
   } catch (error) {
-    console.log('Error fetching login credentials:', error);
-    console.error('Erreur:', error);
+    // pas de réponse d'erreur du serveur ducoup la connexion a pas pu être établie
   }
 }
 

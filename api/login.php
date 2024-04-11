@@ -22,11 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $row['id'];
             header("Location: ../index.php");
             
-            $data = [
-                'success' => true,
-                'message' => 'Login successful'
-            ];
-            echo json_encode($data);
             $conn->close();
             exit();
         } else {
