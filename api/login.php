@@ -14,6 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($sql);
     $data = array();
 
+    $data = [
+        'success' => false,
+        'message' => 'Incorrect password'
+    ];
+    $data = [
+        'success' => true,
+        'message' => 'cpt'
+    ];
+
     echo json_encode($data);
 }
 // session_start();
