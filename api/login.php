@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     var_dump($result);
     // echo "----";
     // echo "<br>";
-    // echo "$result";
+    echo "$result";
     // echo "<br>";
     // echo "----";
 
