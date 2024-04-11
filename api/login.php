@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     require_once 'db.php';
     
-    error_log("login542.php", 0);
     $sql = "SELECT * FROM clients WHERE login = '$username'";
     $result = $conn->query($sql);
     $data = [];
@@ -41,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'message' => 'Incorrect password'
         ];
     }
-
+    
+    error_log("login542.php", 0);
 
     // Set the content type header
     header('Content-Type: application/json');
