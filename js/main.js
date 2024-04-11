@@ -14,6 +14,7 @@ function fetchLoginCredentials(username, password) {
     throw new Error('Erreur de connexion');
   })
   .then(data => {
+    console.log('Success:', data);
     console.log(data);
     if (data.success) {
       location.href = 'index.php';
@@ -23,7 +24,6 @@ function fetchLoginCredentials(username, password) {
     }
   })
   .catch(error => {
-    console.log('Error fetching login credentials:', error);
     console.error('Erreur:', error);
   });
 }
