@@ -9,7 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit(); // Terminer le script pour éviter toute exécution supplémentaire
     }
     require_once 'db.php';
-    
+
+    $sql = "SELECT * FROM clients WHERE login = '$username'";
+    $result = $conn->query($sql);
+    $data = array();
+
+    echo json_encode($data);
 }
 // session_start();
 // // error_log("login.php", 1, "tollmeface@gmail.com");
