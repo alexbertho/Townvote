@@ -14,10 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($sql);
     $data = array();
 
-    $data = [
-        'success' => false,
-        'message' => 'Incorrect password'
-    ];
     if ($result->num_rows == 1) { // Si un utilisateur a été trouvé
         $row = $result->fetch_assoc();
         if ($password == $row['pass']) { // Si le mot de passe est correct
@@ -35,9 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'success' => false,
             'message' => 'Username not found'
         ];
-        header('Content-Type: application/json');
-        echo json_encode($data);
+    } else { 
+        $data = [
+            'success' => false,
+            'message' => 'Incorrect password'
+        ];
     }
+    header('Content-Type: application/json');
+    echo json_encode($data);
 
 }
 // session_start();
