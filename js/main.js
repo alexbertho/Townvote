@@ -8,6 +8,8 @@ function fetchLoginCredentials(username, password) {
     body: formData
   })
   .then(response => {
+    console.log('Response:');
+    console.log(response);
     if (response.ok) {
       return response.json();
     }
