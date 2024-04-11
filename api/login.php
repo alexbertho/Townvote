@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     error_log("login542.php", 0);
     error_log(json_encode($data), 0);
     // Set the content type header
-    header('Content-Type: application/json');
+    // header('Content-Type: application/json');
     // error_log(json_encode($data), 0);
     // Output the JSON data
     echo json_encode($data);
