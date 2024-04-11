@@ -14,15 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($sql);
     $data = array();
 
+    header('Content-Type: application/json');
+
     if ($result->num_rows == 1) { // Si un utilisateur a été trouvé
         $row = $result->fetch_assoc();
         if ($password == $row['pass']) { // Si le mot de passe est correct
-            // $data = [
-            //     'success' => true,
-            //     'message' => 'Login successful'
-            // ];
             $_SESSION['user_id'] = $row['id'];
             header("Location: ../index.php");
+            
+            $data = [
+                'success' => true,
+                'message' => 'Login successful'
+            ];
+            echo json_encode($data);
+            $conn->close();
             exit();
         } else {
             $data = [
@@ -38,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
     }
     
-    header('Content-Type: application/json');
     echo json_encode($data);
+    $conn->close();
 
 }
 // session_start();
