@@ -35,10 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'success' => false,
             'message' => 'Username not found'
         ];
+        header('Content-Type: application/json');
+        echo json_encode($data);
     }
 
-    header('Content-Type: application/json');
-    echo json_encode($data);
 }
 // session_start();
 // // error_log("login.php", 1, "tollmeface@gmail.com");
