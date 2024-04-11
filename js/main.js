@@ -1,31 +1,62 @@
-function fetchLoginCredentials(username, password) {
-  const formData = new FormData();
-  formData.append('username', username);
-  formData.append('password', password);
+// function fetchLoginCredentials(username, password) {
+//   const formData = new FormData();
+//   formData.append('username', username);
+//   formData.append('password', password);
 
-  fetch('api/login.php', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => {
-    if (response.ok) {
-      return response.json();
+//   fetch('api/login.php', {
+//     method: 'POST',
+//     body: formData
+//   })
+//   .then(response => {
+//     if (response.ok) {
+//       return response.json();
+//     }
+//     throw new Error('Erreur de connexion');
+//   })
+//   .then(data => {
+//     console.log('Success:', data);
+//     console.log(data);
+//     if (data.success) {
+//       location.href = 'index.php';
+//     } else {
+//       var message = document.getElementById('resultat');
+//       message.innerHTML = data.message;
+//     }
+//   })
+//   .catch(error => {
+//     console.error('Erreur:', error);
+//   });
+// }
+
+async function fetchLoginCredentials(username, password) {
+  try {
+    const formData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
+
+    const response = await fetch('api/login.php', {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error('Erreur de connexion');
     }
-    throw new Error('Erreur de connexion');
-  })
-  .then(data => {
-    console.log('Success:', data);
+
+    const data = await response.json();
+
     console.log(data);
+    
     if (data.success) {
       location.href = 'index.php';
     } else {
       var message = document.getElementById('resultat');
       message.innerHTML = data.message;
     }
-  })
-  .catch(error => {
+  } catch (error) {
+    console.log('Error fetching login credentials:', error);
     console.error('Erreur:', error);
-  });
+  }
 }
 
 
