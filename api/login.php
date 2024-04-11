@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'message' => 'Login successful'
             ];
             $_SESSION['user_id'] = $row['id'];
-            // header("Location: ../index.php");
+            header("Location: ../index.php");
         }
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
         $data = [
