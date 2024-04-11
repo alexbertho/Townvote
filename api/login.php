@@ -7,7 +7,7 @@ session_start();
 // }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['username']) && isset($_POST['password'])) {
-        
+        error_log(json_encode($_POST), 0);
         $username = $_POST['username'];
         $password = $_POST['password'];
         header("Location: ../index.php");
