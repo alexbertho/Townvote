@@ -1,10 +1,10 @@
 <?php
 session_start();
 // error_log("login.php", 1, "tollmeface@gmail.com");
-if (isset($_SESSION['user_id'])) {
-    header("Location: ../index.php");
-    exit();
-}
+// if (isset($_SESSION['user_id'])) {
+//     header("Location: ../index.php");
+//     exit();
+// }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['username']) && isset($_POST['password'])) {
         
