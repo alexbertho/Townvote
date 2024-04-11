@@ -23,10 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo "<br>";
     echo $password;
     
-    $sql = "SELECT * FROM clients WHERE login = '$username'";
+    // $sql = "SELECT * FROM clients WHERE login = '$username'";
 
-    // $sql = "SELECT * FROM clients";
+    $sql = "SELECT * FROM clients";
     $result = $conn->query($sql);
+
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
@@ -40,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo "$result";
     echo "<br>";
     echo "----";
+
     //git add api/login.php api/db.php && git commit -m "cpt" && git push
     //git add api/db.php api/login.php && git commit -m "maj auto" && git push
 
