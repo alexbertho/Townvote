@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>EveryVote</title>
+        <title>TownVote - Connexion</title>
         <link rel="stylesheet" href="css/style.css">
         <script src="js/main.js"></script>
     </head>

@@ -33,6 +33,12 @@ form > hr {
     border: 1px solid #fff;
 }
 
+.batiment{
+    background-color: #fff;
+    height: 4em;
+    width: 6em;
+}
+
 .loginbutton {
     border: none;
     background-color: #fff;
