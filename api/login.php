@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_log("login.php", 0);
 // error_log("login.php", 1, "tollmeface@gmail.com");
 if (isset($_SESSION['user_id'])) {
     header("Location: ../index.php");
@@ -16,10 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit(); // Terminer le script pour éviter toute exécution supplémentaire
     }
     require_once 'db.php';
-
+    
+    error_log("login542.php", 0);
     $sql = "SELECT * FROM clients WHERE login = '$username'";
     $result = $conn->query($sql);
     $data = [];
+    error_log("login12.php", 0);
     if ($result->num_rows == 1) { // Si un utilisateur a été trouvé
         $row = $result->fetch_assoc();
         if ($password == $row['pass']) { // Si le mot de passe est correct
@@ -44,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Set the content type header
     header('Content-Type: application/json');
-    error_log(json_encode($data), 0);
+    // error_log(json_encode($data), 0);
     // Output the JSON data
     echo json_encode($data);
 }
