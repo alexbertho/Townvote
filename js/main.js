@@ -2,7 +2,7 @@ function fetchLoginCredentials(username, password) {
   const formData = new FormData();
   formData.append('username', username);
   formData.append('password', password);
-
+  console.log('Form data:');
   fetch('api/login.php', {
     method: 'POST',
     body: formData
