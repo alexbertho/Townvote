@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo "0 results";
     }
 
-    var_dump($result["field_count"]);
+    var_dump($result);
 
 
     // $sql = "SELECT * FROM clients";
