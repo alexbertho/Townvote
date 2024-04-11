@@ -17,10 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     require_once 'db.php';
 
 
-    echo "test";
-    echo "<br>";
+    echo "<br> username:";
     echo $username;
-    echo "<br>";
+    echo "<br> password:";
     echo $password;
     
     $sql = "SELECT * FROM clients WHERE login = '$username'";
