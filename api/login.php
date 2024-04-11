@@ -34,12 +34,14 @@ if (isset($_SESSION['user_id'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['username']) && isset($_POST['password'])) {
+        
         $username = $_POST['username'];
         $password = $_POST['password'];
     } else {
         http_response_code(403);
         exit(); // Terminer le script pour éviter toute exécution supplémentaire
     }
+    require_once 'db.php';
 
     $sql = "SELECT * FROM clients WHERE login = '$username'";
     $result = $conn->query($sql);
