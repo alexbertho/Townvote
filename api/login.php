@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo $username;
     echo "<br> password:";
     echo $password;
+    echo "<br>";
     
     $sql = "SELECT * FROM clients WHERE login = '$username'";
 
