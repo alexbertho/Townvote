@@ -14,8 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($sql);
     $data = array();
 
-    header('Content-Type: application/json');
-
+    
     if ($result->num_rows == 1) { // Si un utilisateur a été trouvé
         $row = $result->fetch_assoc();
         if ($password == $row['pass']) { // Si le mot de passe est correct
@@ -29,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'success' => false,
                 'message' => 'Incorrect password'
             ];
-
+            
         }
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
         $data = [
@@ -38,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
     }
     
+    header('Content-Type: application/json');
     echo json_encode($data);
     $conn->close();
 
