@@ -26,9 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'message' => 'Login successful'
             ];
             $_SESSION['user_id'] = $row['id'];
-            echo json_encode($data);
 
-            header("Location:../index.php");
         }
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
         $data = [
@@ -37,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
     }
 
+    header('Content-Type: application/json');
     echo json_encode($data);
 }
 // session_start();
