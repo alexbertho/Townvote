@@ -1,8 +1,9 @@
 <?php
-	if (!isset($_SESSION['user_id'])) {
-		// echo "Logged in as user " . $_SESSION['user_id'];
-		header('Location: login.php');
-	}
+    echo $_SESSION
+	// if (!isset($_SESSION['user_id'])) {
+	// 	// echo "Logged in as user " . $_SESSION['user_id'];
+	// 	header('Location: login.php');
+	// }
 ?>
 
 <!DOCTYPE html>
