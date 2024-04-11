@@ -31,12 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ];
 
         }
-    }
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
         $data = [
             'success' => false,
             'message' => 'Username not found'
         ];
+    }
+    
     header('Content-Type: application/json');
     echo json_encode($data);
 
