@@ -24,6 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $row['id'];
             header("Location: ../index.php");
             exit();
+        } else {
+            $data = [
+                'success' => false,
+                'message' => 'Incorrect password'
+            ];
 
         }
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
@@ -31,12 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'success' => false,
             'message' => 'Username not found'
         ];
-    } else { 
-        $data = [
-            'success' => false,
-            'message' => 'Incorrect password'
-        ];
-    }
     header('Content-Type: application/json');
     echo json_encode($data);
 
