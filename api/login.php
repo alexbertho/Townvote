@@ -22,12 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo "<br> password:";
     echo $password;
     echo "<br>";
+    echo "<br>";
     
     $sql = "SELECT * FROM clients WHERE login = '$username'";
 
-    // $sql = "SELECT * FROM clients";
     $result = $conn->query($sql);
-
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
@@ -36,55 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     } else {
         echo "0 results";
     }
-
-    var_dump($result);
-
-
-    // $sql = "SELECT * FROM clients";
-    // $result = $conn->query($sql);
-    // var_dump($result["field_count"]);
-
-
-    // echo "----";
-    // echo "<br>";
-    // echo "$result";
-    // echo "<br>";
-    // echo "----";
-
-    //git add api/login.php api/db.php && git commit -m "cpt" && git push
-    //git add api/db.php api/login.php && git commit -m "maj auto" && git push
-
-    // if ($result->num_rows > 0) {
-    //     $row = $result->fetch_assoc();
-    //     if (password_verify($password, $row['password'])) {
-    //         $_SESSION['user_id'] = $row['id'];
-    //         header("Location: index.php");
-    //         exit();
-    //     }
-    // }
-    // $error = 'Invalid username or password';
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        if ($password == $row['pass']) {
+            $_SESSION['user_id'] = $row['id'];
+            header("Location: index.php");
+            exit();
+        }
+    } else {
+        $error = 'Invalid username or password';
+    }
 }
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     require_once 'db.php';
-//     $username = $_GET['username'];
-//     $password = $_GET['password'];
-    
-//     $sql = "SELECT * FROM users WHERE username = '$username'";
-
-    
-
-//     $result = $conn->query($sql);
-//     if ($result->num_rows > 0) {
-//         $row = $result->fetch_assoc();
-//         if (password_verify($password, $row['password'])) {
-//             $_SESSION['user_id'] = $row['id'];
-//             header("Location: index.php");
-//             exit();
-//         }
-//     }
-//     $error = 'Invalid username or password';
-// }
-
 
 ?>
