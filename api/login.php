@@ -39,10 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     var_dump($result["field_count"]);
 
-    
-    $sql = "SELECT * FROM clients";
-    $result = $conn->query($sql);
-    var_dump($result["field_count"]);
+
+    // $sql = "SELECT * FROM clients";
+    // $result = $conn->query($sql);
+    // var_dump($result["field_count"]);
 
 
     // echo "----";
