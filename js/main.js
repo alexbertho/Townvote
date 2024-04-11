@@ -23,6 +23,7 @@ function fetchLoginCredentials(username, password) {
     }
   })
   .catch(error => {
+    console.log('Error fetching login credentials:', error);
     console.error('Erreur:', error);
   });
 }
