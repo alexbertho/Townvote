@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $row = $result->fetch_assoc();
         if ($password == $row['pass']) { // Si le mot de passe est correct
             $_SESSION['user_id'] = $row['id'];
-            header("Location: ../index.php");
-            
-            $conn->close();
-            exit();
+            $data = [
+                'success' => true,
+                'message' => 'Login successful'
+            ];
         } else {
             $data = [
                 'success' => false,
