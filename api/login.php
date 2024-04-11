@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         error_log(json_encode($_POST), 0);
         $username = $_POST['username'];
         $password = $_POST['password'];
-        header("Location: ../index.php");
     } else {
         http_response_code(403);
         exit(); // Terminer le script pour éviter toute exécution supplémentaire
@@ -34,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'message' => 'Login successful'
             ];
             $_SESSION['user_id'] = $row['id'];
+            header("Location: ../index.php");
         }
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
         $data = [
