@@ -19,7 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $sql = "SELECT * FROM clients WHERE login = '$username'";
     $result = $conn->query($sql);
-    $data = [];
+    $data = array();
+
+    $data = [
+        'success' => false,
+        'message' => 'Incorrect password'
+    ];
     error_log("login12.php", 0);
     if ($result->num_rows == 1) { // Si un utilisateur a été trouvé
         $row = $result->fetch_assoc();
@@ -35,12 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'success' => false,
             'message' => 'Username not found'
         ];
-    } else { 
-        $data = [
-            'success' => false,
-            'message' => 'Incorrect password'
-        ];
-    }
+    } 
+    // else { 
+    //     $data = [
+    //         'success' => false,
+    //         'message' => 'Incorrect password'
+    //     ];
+    // }
     
     error_log("login542.php", 0);
     error_log(json_encode($data), 0);
