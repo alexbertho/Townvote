@@ -1,5 +1,6 @@
 <?php
-    echo $_SESSION
+    session_start();
+    echo $_SESSION;
 	// if (!isset($_SESSION['user_id'])) {
 	// 	// echo "Logged in as user " . $_SESSION['user_id'];
 	// 	header('Location: login.php');
