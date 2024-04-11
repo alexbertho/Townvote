@@ -36,11 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     } else {
         echo "0 results";
     }
-    echo "----";
-    echo "<br>";
-    echo "$result";
-    echo "<br>";
-    echo "----";
+
+    var_dump($result);
+    // echo "----";
+    // echo "<br>";
+    // echo "$result";
+    // echo "<br>";
+    // echo "----";
 
     //git add api/login.php api/db.php && git commit -m "cpt" && git push
     //git add api/db.php api/login.php && git commit -m "maj auto" && git push
