@@ -21,7 +21,8 @@ function fetchLoginCredentials(username, password) {
     console.log(data);
     
     if (data.success) {
-      location.href = 'index.php';
+      // location.href = 'index.php';
+      console.log('Success login');
     } else {
       var message = document.getElementById('resultat');
       message.innerHTML = data.message;
