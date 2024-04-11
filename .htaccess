@@ -1,16 +1,17 @@
-RewriteEngine Off
+# RewriteEngine On
 
 # Supprimer l'extension .php
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}.php -f
+# RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 # Supprimer l'extension .html
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}.html -f
+# RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
 # Redirection forcée de l'URL avec extension .php ou .html vers l'URL sans extension
-RewriteCond %{THE_REQUEST} \.php [OR]
-RewriteCond %{THE_REQUEST} \.html
-RewriteRule ^(.+)\.(php|html)$ /$1 [R=301,L]
+# RewriteCond %{THE_REQUEST} \.php [OR]
+# RewriteCond %{THE_REQUEST} \.html
+# RewriteRule ^(.+)\.(php|html)$ /$1 [R=301,L]
+
