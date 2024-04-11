@@ -1,4 +1,16 @@
 <?php
+session_start();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+    } else {
+        http_response_code(403);
+        exit(); // Terminer le script pour éviter toute exécution supplémentaire
+    }
+    require_once 'db.php';
+    
+}
 // session_start();
 // // error_log("login.php", 1, "tollmeface@gmail.com");
 // // if (isset($_SESSION['user_id'])) {
@@ -57,3 +69,5 @@
 //     echo json_encode($data);
 // }
 ?>
+
+
