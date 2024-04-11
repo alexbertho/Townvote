@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const username = document.getElementById('username').value; 
     const password = document.getElementById('password').value;
-
+    
     if (login(username, password)=== true) {
       fetchLoginCredentials(username, password); 
     }

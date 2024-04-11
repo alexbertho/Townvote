@@ -34,7 +34,7 @@ if (isset($_SESSION['user_id'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['username']) && isset($_POST['password'])) {
-        $name = $_POST['username'];
+        $username = $_POST['username'];
         $password = $_POST['password'];
     } else {
         http_response_code(403);
