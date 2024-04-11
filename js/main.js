@@ -14,8 +14,10 @@ function fetchLoginCredentials(username, password) {
     throw new Error('Erreur de connexion');
   })
   .then(data => {
-    console.log('Success:', data);
+    console.log('Success:');
+    
     console.log(data);
+    
     if (data.success) {
       location.href = 'index.php';
     } else {
