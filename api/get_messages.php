@@ -26,9 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo "Aucun message trouvé";
     }
     
-    header('Content-Type: application/json');
-    echo json_encode($data);
-    $conn->close();
+    // header('Content-Type: application/json');
+    // echo json_encode($data);
+    // $conn->close();
 
 }
 ?>
