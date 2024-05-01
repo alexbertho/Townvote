@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $result = $conn->query($sql);
     $data = array();
 
-    echo "<h1>Messages</h1>";
     
     if ($result->num_rows == 1) {
         echo "<ul>";
