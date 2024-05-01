@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     require_once 'db.php';
 
 
-    $sql = "SELECT * FROM `message` INNER JOIN `users` ON `message`.`user_id` = `users`.`id` WHERE `ag_id`='$ag_id'"
+    $sql = "SELECT * FROM `message` INNER JOIN `users` ON `message`.`user_id` = `users`.`id` WHERE `ag_id`='$ag_id'";
     $result = $conn->query($sql);
     $data = array();
     echo $result->num_rows;
