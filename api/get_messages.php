@@ -15,9 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $data = array();
     echo $result->num_rows;
     echo "<br>";
-    echo $ag_id;
     
-    if ($result->num_rows == 1) {
+    if ($result->num_rows > 0) {
         echo "Message trouvé";
         echo "<ul>";
         foreach ($result as $row) {
@@ -25,9 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         }
         echo "</ul>";
 
-    } else if ($result->num_rows == 0) {
+    } else {
         echo "Aucun message trouvé";
     }
+
     
     // header('Content-Type: application/json');
     // echo json_encode($data);
