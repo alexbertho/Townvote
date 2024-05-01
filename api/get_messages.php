@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     require_once 'db.php';
 
-    $sql = "SELECT * FROM `message` WHERE `ag_id`=1"
+    $sql = "SELECT * FROM `message` WHERE `ag_id`=1";
     $result = $conn->query($sql);
     $data = array();
 
