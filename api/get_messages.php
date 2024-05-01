@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo "</ul>":
 
     } else if ($result->num_rows == 0) {
-        
+        echo "Aucun message trouvé";
     }
     
     header('Content-Type: application/json');
