@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (isset($_GET['username']) && isset($_GET['password'])) {
+    if (isset($_GET['ag_id']) or true) {
         $ag_id = $_GET['ag_id'];
     } else {
         http_response_code(403);
@@ -13,12 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $result = $conn->query($sql);
     $data = array();
 
+    echo "<h1>Messages</h1>"
     
     if ($result->num_rows == 1) {
+        echo "<ul>"
         foreach ($result as $row) {
-            echo $row['message'];
+            echo "<li>" . $row['message'] . "</li>";
         }
-        
+        echo "</ul>"
+
     } else if ($result->num_rows == 0) {
         
     }
