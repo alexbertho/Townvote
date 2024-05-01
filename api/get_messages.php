@@ -21,7 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo "Message trouvé";
         echo "<ul>";
         foreach ($result as $row) {
-            echo "<li>" . $row['message'] . " from : ". $row['username'] . "</li>";
+            if (isset($row['username'])) {
+                $name = $row['username'];
+            } else {
+                $name = $row['login'];
+            }
+            echo "<li>" . $row['message'] . " from : ". $name . "</li>";
         }
         echo "</ul>";
 
