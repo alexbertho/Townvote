@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     require_once 'db.php';
 
-    $sql = "SELECT * FROM `message` WHERE `ag_id`=1";
+
+    $sql = "SELECT * FROM `message` WHERE `ag_id`='$ag_id' INNER JOIN `users` ON `message`.`user_id` = `users`.`id`";
     $result = $conn->query($sql);
     $data = array();
     echo $result->num_rows;
@@ -20,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo "Message trouvé";
         echo "<ul>";
         foreach ($result as $row) {
-            echo "<li>" . $row['message'] . "from : ". $row['user_id'] . "</li>";
+            echo "<li>" . $row['message'] . " from : ". $row['user_id'] . "</li>";
         }
         echo "</ul>";
 
