@@ -14,14 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $result = $conn->query($sql);
     $data = array();
 
-    echo "<h1>Messages</h1>":
+    echo "<h1>Messages</h1>";
     
     if ($result->num_rows == 1) {
-        echo "<ul>":
+        echo "<ul>";
         foreach ($result as $row) {
             echo "<li>" . $row['message'] . "</li>";
         }
-        echo "</ul>":
+        echo "</ul>";
 
     } else if ($result->num_rows == 0) {
         echo "Aucun message trouvé";
