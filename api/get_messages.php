@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     
     if ($result->num_rows == 1) {
+        echo "Message trouvé";
         echo "<ul>";
         foreach ($result as $row) {
             echo "<li>" . $row['message'] . "</li>";
