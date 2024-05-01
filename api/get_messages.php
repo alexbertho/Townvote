@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['ag_id'])) {
         $ag_id = $_GET['ag_id'];
     } else {
+        echo "Erreur: ag_id non défini";
         // http_response_code(403);
         // exit(); // Terminer le script pour éviter toute exécution supplémentaire
     }
