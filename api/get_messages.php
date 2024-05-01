@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo "Message trouvé";
         echo "<ul>";
         foreach ($result as $row) {
-            echo "<li>" . $row['message'] . "</li>";
+            echo "<li>" . $row['message'] . "from : ". $row['user_id'] . "</li>";
         }
         echo "</ul>";
 
