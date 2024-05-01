@@ -13,7 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $sql = "SELECT * FROM `message` WHERE `ag_id`=1";
     $result = $conn->query($sql);
     $data = array();
-
+    echo $result->num_rows;
+    echo "<br>";
+    echo $ag_id;
     
     if ($result->num_rows == 1) {
         echo "Message trouvé";
