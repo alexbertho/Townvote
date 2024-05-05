@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     require_once 'db.php';
 
-    $sql = "SELECT * FROM clients WHERE login = '$username'";
+    $sql = "SELECT * FROM users WHERE login = '$username'";
     $result = $conn->query($sql);
     $data = array();
 
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $data = [
             'success' => false,
-            'message' => 'Username already exists'
+            'message' => 'Utilisateur déjà existant'
         ];
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
         $sql = "INSERT INTO clients (login, password) VALUES ('$username', '$password')";

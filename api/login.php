@@ -10,11 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     require_once 'db.php';
 
-    $sql = "SELECT * FROM clients WHERE login = '$username'";
-    $result = $conn->query($sql);
+    // Utilisation d'une requête préparée pour sécuriser la requête SQL
+    $stmt = $conn->prepare("SELECT * FROM users WHERE login = ?");
+    $stmt->bind_param("s", $username);  // fonction pour eviter les injections SQL
+
+    $stmt->execute();
+    $result = $stmt->get_result();
     $data = array();
 
-    
     if ($result->num_rows == 1) { // Si un utilisateur a été trouvé
         $row = $result->fetch_assoc();
         if ($password == $row['pass']) { // Si le mot de passe est correct
@@ -29,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'success' => false,
                 'message' => 'Mot de passe incorrect'
             ];
-            
         }
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
         $data = [
@@ -40,9 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     header('Content-Type: application/json');
     echo json_encode($data);
+    $stmt->close();
     $conn->close();
-
 }
 ?>
-
-
