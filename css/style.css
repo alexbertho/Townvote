@@ -18,9 +18,12 @@ html, body {
 
 }
 
+
+
 .flex-container > div{
     border-radius: 5px;
     padding: 8px;
+    width: 15em;
 }
 
 .flex-container > .login-form > form {
@@ -118,4 +121,41 @@ header > h2 {
 
 .icon-login > img {
     width: 2.5em;
+}
+
+.error-box {
+    background-image: linear-gradient(to bottom, #df6060, #e62a11);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: none;
+    text-align: center;
+    word-wrap: break-word;
+    overflow: auto; /* Add this line */
+
+}
+
+.error-text {
+    font-size: 0.8em;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: black;
+    word-break: normal; /* Add this line */
+}
+
+.error-box.show {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

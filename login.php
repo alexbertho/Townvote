@@ -5,6 +5,7 @@
         <title>TownVote - Connexion</title>
         <link rel="stylesheet" href="css/style.css">
         <script src="js/main.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
     </head>
 
     <body>
@@ -16,10 +17,11 @@
         </header>
 
         <div class="flex-container">
-            
             <div class="login-form">
-                <form method="get">
-                    <div id="resultat" style="position: absolute;"></div>     
+                <div id="error-message" class="error-box">
+                    <span class="error-text"></span>
+                </div>
+                <form method="get"> 
                     <div class = "icon-login">
                         <img src="img/user.png" alt="user">
                         <input type="text" name="login" id="username" placeholder="Nom d'utilisateur" required>

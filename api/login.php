@@ -27,14 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $data = [
                 'success' => false,
-                'message' => 'Incorrect password'
+                'message' => 'Mot de passe incorrect'
             ];
             
         }
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
         $data = [
             'success' => false,
-            'message' => 'Username not found'
+            'message' => 'Nom d\'utilisateur incorrect'
         ];
     }
     

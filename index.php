@@ -1,6 +1,6 @@
 <?php
     session_start();
-    echo $_SESSION;
+    // echo $_SESSION;
 	// if (!isset($_SESSION['user_id'])) {
 	// 	// echo "Logged in as user " . $_SESSION['user_id'];
 	// 	header('Location: login.php');
@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/index.css">
         <script src="js/main.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
     </head>
 
     <body>
@@ -29,8 +30,8 @@
 
 		<h2>
 			<?php  
-				echo "Bienvenue " . $_SESSION['user_id'];
-				echo "Bienvenue " . $_SESSION['user_login'];
+				// echo "Bienvenue " . $_SESSION['user_id'];
+				// echo "Bienvenue " . $_SESSION['user_login'];
 			?>
 		</h2>
 

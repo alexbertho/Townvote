@@ -18,8 +18,7 @@ async function fetchLoginCredentials(username, password) {
     if (data.success) {
       location.href = 'index.php';
     } else {
-      var message = document.getElementById('resultat');
-      message.innerHTML = data.message;
+      errorMessage(data.message);
     }
   } catch (error) {
     // pas de réponse d'erreur du serveur ducoup la connexion a pas pu être établie
@@ -99,27 +98,6 @@ function login(username, password) {
   }
 }
 
-
-function validateUsername(username) {
-  if (username === "test") {
-    return true;
-  }
-
-  if (username.length < 3) {
-    return "Le nom d'utilisateur doit contenir au moins 3 caractères";
-  }
-
-  if (username.length > 20) {
-    return "Le nom d'utilisateur doit contenir au plus 20 caractères";
-  }
-
-  if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-    return "Le nom d'utilisateur ne peut contenir que des lettres, des chiffres et des underscores";
-  }
-
-  return true;
-}
-
 function register(username, password, confirmPassword) {
   if (password !== confirmPassword) {
     return "Les mots de passe ne correspondent pas";
@@ -134,36 +112,53 @@ function register(username, password, confirmPassword) {
 
 }
 
+function validateUsername(username) {
+  if (username === "test") {
+    return true;
+  }
+
+  if (username.length < 3) {
+    return errorMessage("Le nom d'utilisateur doit contenir au moins 3 caractères");
+  }
+
+  if (username.length > 20) {
+    return errorMessage("Le nom d'utilisateur doit contenir au plus 20 caractères");
+  }
+
+  return true;
+}
+
+
 function validatePassword(password) {
   if (password === "test") {
     return true;
   }
 
   if (password.length < 6) {
-    return "Le mot de passe doit contenir au moins 6 caractères";
+    
+    return errorMessage("Le mot de passe doit contenir au moins 6 caractères");
   }
 
   if (password.length > 20) {
-    return "Le mot de passe doit contenir au plus 20 caractères";
-  }
-
-  if (!/[^A-Za-z0-9]/.test(password)) {
-    return "Le mot de passe doit contenir au moins un caractère spécial";
-  }
-
-  if (!/[A-Z]/.test(password)) {
-    return "Le mot de passe doit contenir au moins une lettre majuscule";
-  }
-
-  if (!/[a-z]/.test(password)) {
-    return "Le mot de passe doit contenir au moins une lettre minuscule";
-  }
-
-  if (!/\d/.test(password)) {
-    return "Le mot de passe doit contenir au moins un chiffre";
+    return errorMessage("Le mot de passe doit contenir au plus 20 caractères");
   }
 
   return true;
+}
+
+function errorMessage(message) {
+  const form = document.querySelector('form');
+  const errorMessage = document.getElementById('error-message');
+  const errorText = errorMessage.querySelector('.error-text');
+
+  errorText.textContent = message;
+
+  errorMessage.classList.remove('show');
+  setTimeout(() => {
+      errorMessage.classList.add('show');
+  }, 0);
+
+  return message;
 }
 
 
