@@ -10,7 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     require_once 'db.php';
 
-    $sql = "SELECT * FROM users WHERE login = '$username'";
+    $sql = "SELECT * FROM users WHERE login = ?";
+    $stmt->bind_param("s", $username);  // fonction pour eviter les injections SQL
+
     $result = $conn->query($sql);
     $data = array();
 
