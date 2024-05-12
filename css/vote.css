@@ -1,0 +1,35 @@
+.voting-system {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .list-container {
+    width: 30%;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+  }
+  
+  #options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #options-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  #options-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .graph-container {
+    width: 70%;
+    padding: 20px;
+  }
+  
+  #graph-canvas {
+    border: 1px solid #ccc;
+  }
