@@ -7,8 +7,6 @@
         <link rel="stylesheet" href="css/vote.css">
         <script src="js/main.js"></script>
         <script src="js/vote.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
-
     </head>
 
     <body>

@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="css/style.css">
         <script src="js/main.js"></script>
         <script src="js/login.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
     </head>
 
     <body>

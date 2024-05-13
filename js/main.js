@@ -49,3 +49,11 @@ function errorMessage(message) {
   return message;
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+
+  const fontLink = document.createElement('link');
+  fontLink.rel = 'stylesheet';
+  fontLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap';
+  document.head.appendChild(fontLink);
+
+});

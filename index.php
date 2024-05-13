@@ -11,40 +11,32 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>TownVote - Acceuil</title>
+        <title>TownVote</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/index.css">
         <script src="js/main.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
     </head>
-
+ 
     <body>
-
+ 
         <header>
             <h1>TownVote</h1>
             <hr>
             <h2>Acceuil</h2>
         </header>
-
-        <div  class="flex-container">
-
-		<h2>
-			<?php  
-				// echo "Bienvenue " . $_SESSION['user_id'];
-				// echo "Bienvenue " . $_SESSION['user_login'];
-			?>
-		</h2>
-
-        <div class="batiment"></div>
-        <div class="batiment"></div>
-        <div class="batiment"></div>
-        <div class="batiment"></div>
-        <div class="batiment"></div>
-        <div class="batiment"></div>
-        <div class="batiment"></div>
-        <div class="batiment"></div>
-        <div class="batiment"></div>
-        <div class="batiment"></div>
+ 
+        <section class='flexcontainer'>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
     </body>
-
+ 
 </html>
