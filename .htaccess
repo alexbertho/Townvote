@@ -15,3 +15,8 @@
 # RewriteCond %{THE_REQUEST} \.html
 # RewriteRule ^(.+)\.(php|html)$ /$1 [R=301,L]
 
+
+<Files "confidential">
+    Order Deny,Allow
+    Deny from all
+</Files>
