@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 }
 // verifie si l'utilisateur a accès au vote
-$stmt = $conn->prepare("SELECT * FROM ag WHERE id = ? AND id IN (SELECT ag_id FROM user_ag WHERE user_id = ?)");
+$stmt = $conn->prepare("SELECT * FROM vote WHERE id = ? AND ag_id IN (SELECT ag_id FROM user_ag WHERE user_id = ?)");
 $stmt->bind_param("ii", $ag_id, $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
