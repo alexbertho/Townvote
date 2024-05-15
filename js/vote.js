@@ -53,15 +53,15 @@ document.addEventListener("DOMContentLoaded", function() {
   // Update graph function
   function updateGraph() {
 
-    // voteCounts = []
-    // fetch('api/get_votes.php?vote_id=1') // Fetch vote data
-    // .then(response => response.json())
-    // .then(data => {
-    //   for (var i in data['voteCount']) {
-    //     voteCounts[i] = (data['voteCount'][i]);
-    //   }
-    //   console.log('vote counts:', voteCounts);
-    // });
+    voteCounts = []
+    fetch('api/get_votes.php?vote_id=1') // Fetch vote data
+    .then(response => response.json())
+    .then(data => {
+      for (var i in data['voteCount']) {
+        voteCounts[i] = (data['voteCount'][i]);
+      }
+      console.log('vote counts:', voteCounts);
+    });
 
     console.log("update");
 
