@@ -27,7 +27,8 @@ function a_acces($conn, $user_id, $ag_id) {
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (isset($_GET['ag_id'])) {
+    if (isset($_GET['ag_id']) && isset($_GET['from'])) {
+        $from = $_GET['from'];
         $ag_id = $_GET['ag_id'];
     } else {
         echo "Erreur: ag_id non défini";
@@ -42,8 +43,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     
 
-    $sql = "SELECT `login`,`username`,`message` FROM `message` INNER JOIN `users` ON `message`.`user_id` = `users`.`id` WHERE `ag_id`='$ag_id'";
-    $result = $conn->query($sql);
+    $sql = "SELECT `login`,`username`,`message` FROM `message` INNER JOIN `users` ON `message`.`user_id` = `users`.`id` WHERE `ag_id`=? and 'id' > ? ORDER BY `id` DESC LIMIT 10";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $ag_id, $from);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
+    
     $data = array();
     
     if ($result->num_rows > 0) {
