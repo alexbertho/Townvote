@@ -10,8 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     require_once 'db.php';
 
-    $sql = "SELECT * FROM users WHERE login = '$username'";
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM users WHERE login = '?'";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
+
     $data = array();
 
     
@@ -22,18 +27,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'message' => 'Utilisateur déjà existant'
         ];
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
-        $sql = "INSERT INTO clients (login, password) VALUES ('$username', '$password')";
-        if ($conn->query($sql) === TRUE) {
+
+        $sql = "INSERT INTO clients (login, password) VALUES ('?', '?')";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $username, $password);
+        $stmt->execute();
+
+        if ($stmt->affected_rows == 1) {
             $data = [
                 'success' => true,
-                'message' => 'User registered successfully'
+                'message' => 'Utilisateur créé'
             ];
         } else {
             $data = [
                 'success' => false,
-                'message' => 'Error: ' . $sql . '<br>' . $conn->error
+                'message' => 'Erreur lors de la création de l\'utilisateur'
             ];
         }
+        
+        $stmt->close();
     }
     
     header('Content-Type: application/json');
