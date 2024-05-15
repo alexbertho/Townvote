@@ -1,4 +1,7 @@
 <?php
+// Path: api/vote.php
+// Permet de voter pour un choix
+// https://claveille.web-edu.fr/api/vote.php?vote_id=1&choix_id=1
 
 function peut_voter($user_id, $vote_id) {
     $stmt = $conn->prepare("SELECT * FROM user_vote WHERE user_id = ? AND vote_id = ?");
