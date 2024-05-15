@@ -89,14 +89,10 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("submit");
     const formData = new FormData(theForm);
     console.log(formData);
-    fetch('api/send_message.php', {
-      method: 'POST',
-      body: formData
-    })
+    fetch('api/send_message.php?message=Hello&vote_id=1')
     .then(response => response.json())
     .then(data => {
       console.log(data);
-    
     });
   }
 
