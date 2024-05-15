@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
       console.log('vote counts:', data);
       // Update vote counts
-      
-      voteCounts = data;
+
+      voteCounts = data['voteCount'];
       updateGraph();
     });
   
