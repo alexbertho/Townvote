@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
 
-        $sql = "INSERT INTO clients (login, password) VALUES (?, ?)";
+        $sql = "INSERT INTO users (login, password) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
         if (!$stmt) {
             $data = [
