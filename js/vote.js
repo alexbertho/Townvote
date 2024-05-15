@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const optionsList = document.getElementById('options-list');
   const graphCanvas = document.getElementById('graph-canvas');
   const ctx = graphCanvas.getContext('2d');
-  let voteCounts = [];
-
   
   // Initialize vote counts
   voteCounts = [];
@@ -26,8 +24,10 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
       // console.log('vote counts:', voteCounts);
-    updateGraph();
+      updateGraph();
   });
+  
+  
 
 
   // Add event listeners to list items
@@ -41,28 +41,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Update graph function
   function updateGraph() {
-    // Initialize vote counts
-    voteCounts = [];
-    
-    fetch('api/get_votes.php?vote_id=1') // Fetch vote data
-    .then(response => response.json())
-    .then(data => {
-        // console.log(data);
-        // console.log(data['voteCount']);
-        for (var i in data['voteCount']) {
-          voteCounts[i] = (data['voteCount'][i]);
-        }
-        // console.log('vote counts:', voteCounts);
-    });
-      
     ctx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
 
     const totalVotes = voteCounts.reduce((a, b) => a + b, 0);
     const centerX = graphCanvas.width / 2;
     const centerY = graphCanvas.height / 2;
     const radius = Math.min(centerX, centerY);
+
     let currentAngle = 0;
-      
+
 
     voteCounts.forEach((count, index) => {
       const angle = (count / totalVotes) * 2 * Math.PI;
