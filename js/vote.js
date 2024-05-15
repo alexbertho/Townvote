@@ -15,11 +15,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // voteCounts = data['voteCount'];
       voteCounts = [];
-      console.log('vote len:', data['voteCount'].length);
-      for (let i = 0; i < data['voteCount'].length; i++) {
-        console.log(data['voteCount'][i]);
-        voteCounts[i] = parseInt(data['voteCount'][i]);
-      }
+      data['voteCount'].forEach((count, index) => {
+        voteCounts.push(parseInt(count));
+      });
       console.log('vote counts:', voteCounts);
       updateGraph();
     });
