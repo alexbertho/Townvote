@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if ($result->num_rows > 0) {
         // $data = $result->fetch_all(MYSQLI_ASSOC);
         foreach ($result as $row) {
-            $miniData = ['message' => $row['message']];
+            $miniData = ['id' => $row['id'], 'message' => $row['message']];
             if ($row['username'] == null) {
                 $miniData['username'] = $row['login'];
             } else {
