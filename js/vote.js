@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let currentAngle = 0;
 
+    console.log('totalVotes', totalVotes);
+
     voteCounts.forEach((count, index) => {
       const angle = (count / totalVotes) * 2 * Math.PI;
       ctx.fillStyle = `hsl(${index * 30}, 50%, 50%)`;
