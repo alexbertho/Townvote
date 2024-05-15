@@ -37,7 +37,7 @@ if ($result->num_rows == 0) {
 }
 
 
-$stmt = $conn->prepare("NSERT INTO `message` (`id`, `user_id`, `ag_id`, `message`) VALUES (NULL, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO `message` (`id`, `user_id`, `ag_id`, `message`) VALUES (NULL, ?, ?, ?)");
 $stmt->bind_param("iis", $user_id, $vote_id, $message);
 $stmt->execute();
 $stmt->close();
