@@ -4,6 +4,14 @@ document.addEventListener("DOMContentLoaded", function() {
   const graphCanvas = document.getElementById('graph-canvas');
   const ctx = graphCanvas.getContext('2d');
 
+  fetch('api/get_votes.php?vote_id=1') // Fetch vote data
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      // Update vote counts
+      voteCounts = data;
+      updateGraph();
+    });
   
 
 
@@ -14,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
   Array.prototype.forEach.call(optionsList.children, (li, index) => {
     li.addEventListener('click', () => {
       voteCounts[index]++;
-      console.log(voteCounts);
+      // console.log(voteCounts);
       updateGraph();
     });
   });
@@ -30,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let currentAngle = 0;
 
-    console.log('totalVotes', totalVotes);
 
     voteCounts.forEach((count, index) => {
       const angle = (count / totalVotes) * 2 * Math.PI;
