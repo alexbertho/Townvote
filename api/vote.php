@@ -34,7 +34,7 @@ $user_id = $_SESSION['user_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if ( isset($_GET['vote_id']) && isset($_GET['choix_id'])) {
-        $ag_id = $_GET['choix_id'];
+        $choix_id = $_GET['choix_id'];
         $vote_id = $_GET['vote_id'];
 
     } else {
