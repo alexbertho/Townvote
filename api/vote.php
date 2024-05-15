@@ -3,14 +3,7 @@
 // Permet de voter pour un choix
 // https://claveille.web-edu.fr/api/vote.php?vote_id=1&choix_id=1
 
-
-
-
-
-session_start();
-require_once 'db.php';
-
-function peut_voter($user_id, $vote_id) {
+function peut_voter($conn, $user_id, $vote_id) {
     $stmt = $conn->prepare("SELECT * FROM user_vote WHERE user_id = ? AND vote_id = ?");
     $stmt->bind_param("ii", $user_id, $vote_id);
     $stmt->execute();
@@ -25,6 +18,13 @@ function peut_voter($user_id, $vote_id) {
         return true;
     }
 }
+
+
+
+
+session_start();
+require_once 'db.php';
+
 
 if ($_SESSION['user_id'] == null) {
     header("Location: login.php");
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         exit(); // Terminer le script pour éviter toute exécution supplémentaire
     }
 
-    if (peut_voter($user_id, $vote_id)) {
+    if (peut_voter($conn, $user_id, $vote_id)) {
         $stmt = $conn->prepare("INSERT INTO user_vote (user_id, vote_id, choix_id) VALUES (?, ?, ?)");
         $stmt->bind_param("ii", $user_id, $vote_id, $choix_id);
         $stmt->execute();
