@@ -1,6 +1,6 @@
 <?php
 // Path: api/vote.php
-// Perm
+// Permet de voter pour un choix
 // https://claveille.web-edu.fr/api/vote.php?vote_id=1&choix_id=1
 
 function peut_voter($user_id, $vote_id) {
