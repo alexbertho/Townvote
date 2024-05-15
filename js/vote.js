@@ -41,6 +41,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Update graph function
   function updateGraph() {
+
+    voteCounts = []
+    fetch('api/get_votes.php?vote_id=1') // Fetch vote data
+    .then(response => response.json())
+    .then(data => {
+      for (var i in data['voteCount']) {
+        voteCounts[i] = (data['voteCount'][i]);
+      }
+    });
+
+
+
     ctx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
 
     const totalVotes = voteCounts.reduce((a, b) => a + b, 0);
