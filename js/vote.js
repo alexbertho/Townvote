@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", function() {
             //! add a message to the user
             console.log(data)
           }); 
+        updateGraph();
+        // location.reload() // refresh the page TEMPORARY 
         });
-        // updateGraph();
-        location.reload() // refresh the page TEMPORARY 
       });
 
       for (var i in data['voteCount']) {
