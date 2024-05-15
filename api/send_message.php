@@ -1,5 +1,6 @@
 <?php
-
+// Path: api/send_message.php
+// https://claveille.web-edu.fr/api/send_message.php?message=Hello&vote_id=1
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
