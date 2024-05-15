@@ -5,33 +5,26 @@ document.addEventListener("DOMContentLoaded", function() {
   const ctx = graphCanvas.getContext('2d');
   
   // Initialize vote counts
-  let voteCounts = [10, 0, 0, 0, 0];
+  voteCounts = [];
 
   fetch('api/get_votes.php?vote_id=1') // Fetch vote data
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-      // Update vote counts
-
-      // voteCounts = data['voteCount'];
-      voteCounts = [];
-      data['voteCount']
-      console.log(data['voteCount']);
+      // console.log(data);
+      // console.log(data['voteCount']);
       for (var i in data['voteCount']) {
         voteCounts[i] = (data['voteCount'][i]);
       }
 
-      // var i = 0;
-      // while (data['voteCount'][i] != null) {
-      //   voteCounts.push(data['voteCount'][i]);
-      //   i++;
-      // }
-
-      console.log('vote counts:', voteCounts);
+      // console.log('vote counts:', voteCounts);
       updateGraph();
-    });
+  });
   
-
+  for (var key in data['choix']) {
+    const li = document.createElement('li');
+    li.textContent = data['choix'][key]['desc'];
+    optionsList.appendChild(li);
+  }
 
 
   // Add event listeners to list items
