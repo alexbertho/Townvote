@@ -1,10 +1,21 @@
 <?php
     session_start();
-    // echo $_SESSION;
-	// if (!isset($_SESSION['user_id'])) {
-	// 	// echo "Logged in as user " . $_SESSION['user_id'];
-	// 	header('Location: login.php');
-	// }
+
+    function generateBuildings($buildings) {
+        $html = '';
+        foreach ($buildings as $building) {
+            $html .= "
+            <div>
+                <a href='vote.php?id='>
+                    <img src='img/building.png'/>
+                </a>
+            </div>";
+        }
+        return $html;
+    }
+
+    $buildings = [""];
+    
 ?>
 
 <!DOCTYPE html>
@@ -26,16 +37,8 @@
         </header>
  
         <section class='flexcontainer'>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <?php echo generateBuildings($buildings); ?>
+
         </section>
     </body>
  
