@@ -42,6 +42,10 @@
     padding: 0.5em; 
 }
 
+.picFrame:hover {
+    cursor: pointer;
+}
+
 .picFrame img {
     width: 90%;
     height: 90%;
