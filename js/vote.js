@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
   Array.prototype.forEach.call(optionsList.children, (li, index) => {
     li.addEventListener('click', () => {
       voteCounts[index]++;
+      console.log(voteCounts);
       updateGraph();
     });
   });
