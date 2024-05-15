@@ -5,7 +5,7 @@
         $html = '';
         foreach ($buildings as $building) {
             $id = $building['id'];
-            $id = 1
+            $id = 1;
             // $desciption = $building['description'];
             $adresse = $building['adresse'];
             $html .= "
