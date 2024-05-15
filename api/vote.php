@@ -47,12 +47,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $stmt = $conn->prepare("INSERT INTO user_vote (user_id, vote_id, choix_id) VALUES (?, ?, ?)");
         $stmt->bind_param("iii", $user_id, $vote_id, $choix_id);
         $stmt->execute();
+        if ($stmt->affected_rows == 1) {
+            $data = [
+                'success' => true,
+                'message' => 'Vote enregistré'
+            ];
+        } else {
+            $data = [
+                'success' => false,
+                'message' => 'Erreur lors de l\'enregistrement du vote'
+            ];
+        }
+        
         $stmt->close();
-
-        $data = [
-            'success' => true,
-            'message' => 'Vote enregistré'
-        ];
+        
     } else {
         $data = [
             'success' => false,
