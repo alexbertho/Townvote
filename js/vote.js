@@ -12,19 +12,20 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
       // console.log(data);
       // console.log(data['voteCount']);
-      for (var i in data['voteCount']) {
-        voteCounts[i] = (data['voteCount'][i]);
-      }
-
+      
       for (var key in data['choix']) {
         const li = document.createElement('li');
         li.textContent = data['choix'][key]['desc'];
         li.id = data['choix'][key]['id'];
         optionsList.appendChild(li);
       }
+      
+      for (var i in data['voteCount']) {
+        voteCounts[i] = (data['voteCount'][i]);
+      }
+
 
       // console.log('vote counts:', voteCounts);
-      updateGraph();
   });
   
   
