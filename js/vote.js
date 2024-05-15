@@ -15,16 +15,18 @@ document.addEventListener("DOMContentLoaded", function() {
       for (var i in data['voteCount']) {
         voteCounts[i] = (data['voteCount'][i]);
       }
+      
+      for (var key in data['choix']) {
+        const li = document.createElement('li');
+        li.textContent = data['choix'][key]['desc'];
+        optionsList.appendChild(li);
+      }
 
       // console.log('vote counts:', voteCounts);
       updateGraph();
   });
   
-  for (var key in data['choix']) {
-    const li = document.createElement('li');
-    li.textContent = data['choix'][key]['desc'];
-    optionsList.appendChild(li);
-  }
+  
 
 
   // Add event listeners to list items
