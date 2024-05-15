@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(data)
           }); 
         });
-        updateGraph();
+        // updateGraph();
+        location.reload() // refresh the page TEMPORARY 
       });
 
       for (var i in data['voteCount']) {
