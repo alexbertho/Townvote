@@ -39,12 +39,25 @@ $stmt = $conn->prepare("SELECT * FROM choix WHERE vote_id = ?");
 $stmt->bind_param("i", $vote_id);
 $stmt->execute();
 $result = $stmt->get_result();
+$stmt->close();
 $choix = array();
 while ($row = $result->fetch_assoc()) {
     $choix[] = $row;
 }
-$stmt->close();
 
-    
+$stmt = $conn->prepare("SELECT * FROM vote WHERE id = ?");
+$stmt->bind_param("i", $vote_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$stmt->close();
+$vote = $result->fetch_assoc();
+
+$data = $vote;
+$data['choix'] = $choix;
+
+header('Content-Type: application/json');
+echo json_encode($data);
+$conn->close();
+exit();
 
 ?>
