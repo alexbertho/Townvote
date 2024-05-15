@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   
   
-
+  setInterval(updateGraph, 500);
 
   
 
