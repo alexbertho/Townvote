@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['vote_id']) ) {
         $vote_id = $_GET['vote_id'];
     } else {
-        echo "Erreur: var non défini";
+        // echo "Erreur: var non défini";
         http_response_code(403);
         exit(); // Terminer le script pour éviter toute exécution supplémentaire
     }
