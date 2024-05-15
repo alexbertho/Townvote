@@ -23,8 +23,13 @@ document.addEventListener("DOMContentLoaded", function() {
       Array.prototype.forEach.call(optionsList.children, (li, index) => {
         console.log(li);
         li.addEventListener('click', () => {
-          console.log(li.id);
-          console.log(index);
+          // console.log(li.id);
+          fetch('api/vote.php?vote_id=1&choix_id=' + li.id, {method: 'POST'})
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            // console.log(data['voteCount']);
+          }); 
           updateGraph();
         });
       });
