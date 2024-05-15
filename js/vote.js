@@ -26,19 +26,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
       // console.log('vote counts:', voteCounts);
+      updateGraph();
   });
   
   
 
 
   // Add event listeners to list items
-  Array.prototype.forEach.call(optionsList.children, (li, index) => {
-    li.addEventListener('click', () => {
-      voteCounts[index]++;
-      // console.log(voteCounts);
-      updateGraph();
-    });
-  });
+  // Array.prototype.forEach.call(optionsList.children, (li, index) => {
+  //   li.addEventListener('click', () => {
+  //     voteCounts[index]++;
+  //     // console.log(voteCounts);
+  //     updateGraph();
+  //   });
+  // });
 
   // Update graph function
   function updateGraph() {
