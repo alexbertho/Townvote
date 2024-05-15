@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     if (peut_voter($conn, $user_id, $vote_id)) {
         $stmt = $conn->prepare("INSERT INTO user_vote (user_id, vote_id, choix_id) VALUES (?, ?, ?)");
-        $stmt->bind_param("ii", $user_id, $vote_id, $choix_id);
+        $stmt->bind_param("iii", $user_id, $vote_id, $choix_id);
         $stmt->execute();
         $stmt->close();
 
