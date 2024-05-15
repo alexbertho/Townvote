@@ -55,13 +55,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $conn->close();
             exit();
         }
+        
         $stmt->bind_param("iii", $user_id, $vote_id, $choix_id);
         $stmt->execute();
+
         if ($stmt->affected_rows == 1) {
             $data = [
                 'success' => true,
                 'message' => 'Vote enregistré'
             ];
+
         } else {
             $data = [
                 'a supp' => $stmt->affected_rows,
