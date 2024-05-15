@@ -1,4 +1,8 @@
 <?php
+// api/get_votes.php
+// Permet de recuperer les infos et les choix d'un vote donné si l'utilisateur a accès à ce vote
+// https://claveille.web-edu.fr/api/get_votes.php?vote_id=1
+
 session_start();
 if ($_SESSION['user_id'] == null) {
     header("Location: login.php");
