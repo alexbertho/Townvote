@@ -4,13 +4,7 @@
     function generateBuildings($buildings) {
         $html = '';
         foreach ($buildings as $building) {
-            $id = $building['ag_id'];
-            foreach ($building as $key => $value) {
-                if ($key == 'ag_id') {
-                    continue;
-                }
-                $html .= "<p>$key: $value</p>";
-            }
+            $id = $building['id'];
             $html .= "
             <div>
                 <a href='vote.php?id=$id'>
