@@ -13,8 +13,12 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log(data);
       // Update vote counts
 
-      voteCounts = data['voteCount'];
+      // voteCounts = data['voteCount'];
+      voteCounts = [];
       console.log('vote counts:', voteCounts);
+      for (let i = 0; i < data['voteCount'].length; i++) {
+        voteCounts[i] = parseInt(data['voteCount'][i]);
+      }
       updateGraph();
     });
   
