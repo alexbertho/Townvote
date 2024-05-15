@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Add event listeners to list items
   Array.prototype.forEach.call(optionsList.children, (li, index) => {
+    console.log(li);
     li.addEventListener('click', () => {
       console.log(li.id);
       console.log(index);
