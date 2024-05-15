@@ -31,6 +31,17 @@ document.addEventListener("DOMContentLoaded", function() {
             //! add a message to the user
             console.log(data)
           }); 
+        
+        
+        voteCounts = []
+        fetch('api/get_votes.php?vote_id=1') // Fetch vote data
+        .then(response => response.json())
+        .then(data => {
+          for (var i in data['voteCount']) {
+            voteCounts[i] = (data['voteCount'][i]);
+          }
+          console.log('vote counts:', voteCounts);
+        });
         updateGraph();
         // location.reload() // refresh the page TEMPORARY 
         });
@@ -40,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
         voteCounts[i] = (data['voteCount'][i]);
       }
 
+      
 
       // console.log('vote counts:', voteCounts);
       updateGraph();
@@ -53,15 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // Update graph function
   function updateGraph() {
 
-    voteCounts = []
-    fetch('api/get_votes.php?vote_id=1') // Fetch vote data
-    .then(response => response.json())
-    .then(data => {
-      for (var i in data['voteCount']) {
-        voteCounts[i] = (data['voteCount'][i]);
-      }
-      console.log('vote counts:', voteCounts);
-    });
 
     console.log("update");
 
