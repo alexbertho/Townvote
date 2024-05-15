@@ -52,14 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
         for (var i in data['voteCount']) {
           voteCounts[i] = (data['voteCount'][i]);
         }
-
-        for (var key in data['choix']) {
-          const li = document.createElement('li');
-          li.textContent = data['choix'][key]['desc'];
-          li.id = data['choix'][key]['id'];
-          optionsList.appendChild(li);
-        }
-        
         // console.log('vote counts:', voteCounts);
     });
       
