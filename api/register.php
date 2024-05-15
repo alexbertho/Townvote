@@ -12,10 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sql = "SELECT * FROM users WHERE login = ?";
     $stmt = $conn->prepare($sql);
-    if (!$stmt) {
-        echo "Erreur de préparation de la requête";
-        exit();
-    }
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
