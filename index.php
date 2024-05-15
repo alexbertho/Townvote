@@ -37,9 +37,8 @@
 
 
     } else {
-        echo "Erreur: utilisateur non connecté";
-        http_response_code(403);
-        exit(); // Terminer le script pour éviter toute exécution supplémentaire
+        header("Location: login.php");
+        exit();
     }
 
 ?>
