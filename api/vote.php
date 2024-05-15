@@ -4,6 +4,7 @@
 // https://claveille.web-edu.fr/api/vote.php?vote_id=1&choix_id=1
 
 function peut_voter($user_id, $vote_id) {
+    require_once 'db.php';
     $stmt = $conn->prepare("SELECT * FROM user_vote WHERE user_id = ? AND vote_id = ?");
     $stmt->bind_param("ii", $user_id, $vote_id);
     $stmt->execute();
