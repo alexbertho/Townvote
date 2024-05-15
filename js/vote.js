@@ -4,14 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const graphCanvas = document.getElementById('graph-canvas');
   const ctx = graphCanvas.getContext('2d');
 
-  const response = fetch('api/get_vote.php?' + new URLSearchParams({
-    vote_id: 1,
-  }))
-
-  if (!response.ok) {
-    throw new Error('Erreur de connexion');
-  }
-  console.log(response);
   
 
 
