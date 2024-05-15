@@ -83,4 +83,12 @@ document.addEventListener("DOMContentLoaded", function() {
       currentAngle += angle;
     });
   }
+
+
+  function submit(theForm) {
+    console.log("submit");
+    const formData = new FormData(theForm);
+    console.log(formData);
+  }
+
 });
