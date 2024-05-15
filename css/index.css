@@ -10,9 +10,26 @@
     flex-direction: row;
 }
  
-.flexcontainer div {
-    width: 5em;
-    height: 5em;
+.flexcontainer > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8em;
+    height: 8em;
     margin: 5px;
     background-color: whitesmoke;
+    border-radius: 10%;
+}
+
+
+a {
+    display: inline-block;
+}
+
+
+.flexcontainer img {
+    display: block;
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
 }
