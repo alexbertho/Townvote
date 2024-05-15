@@ -4,6 +4,7 @@
     function generateBuildings($buildings) {
         $html = '';
         foreach ($buildings as $building) {
+            echo $building;
             $id = $building['ag_id'];
             $html .= "
             <div>
