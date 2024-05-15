@@ -27,9 +27,14 @@ function a_acces($conn, $user_id, $ag_id) {
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (isset($_GET['ag_id']) && isset($_GET['from'])) {
-        $from = $_GET['from'];
+    if (isset($_GET['ag_id']) ) {
         $ag_id = $_GET['ag_id'];
+        if (isset($_GET['from'])) {
+            $from = $_GET['from'];
+        } else {
+            $from = 0;
+        }
+        
     } else {
         echo "Erreur: ag_id non défini";
         http_response_code(403);
