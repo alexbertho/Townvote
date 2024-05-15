@@ -30,6 +30,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $sql = "INSERT INTO clients (login, password) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
+        if (!$stmt) {
+            $data = [
+                'success' => false,
+                'message' => 'Erreur lors de la création de l\'utilisateur'
+            ];
+            header('Content-Type: application/json');
+            echo json_encode($data);
+            $conn->close();
+            exit();
+        }
         $stmt->bind_param("ss", $username, $password);
         $stmt->execute();
 
