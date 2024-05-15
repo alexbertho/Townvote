@@ -9,7 +9,12 @@
             $adresse = $building['adresse'];
             $html .= "
             <div class='frame'>
-                <div class='picFrame'>
+                <div id='$id' class='picFrame'>
+                    <script>
+                        document.getElementById('$id').addEventListener('click', function() {
+                            window.location.href = 'vote.php?id=$id';
+                        });
+                    </script>
                     <img src='img/building.png'/>
                 </div>
             <h3>$adresse</h3>

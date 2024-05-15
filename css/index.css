@@ -21,14 +21,6 @@
     gap: 0.25em;
 }
 
-.frame > h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    color: white;
-    text-align: center;
-}
-
-
 
 .picFrame {
     background-color: whitesmoke;
@@ -38,6 +30,16 @@
     align-items: center;
     width: inherit;
     height: inherit;
+
+}
+
+.frame > h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    max-height: 11.5px; 
+    padding: 0.5em; 
 }
 
 .picFrame img {
