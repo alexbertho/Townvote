@@ -15,6 +15,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         http_response_code(403);
         exit(); // Terminer le script pour éviter toute exécution supplémentaire
     }
+    // verifier si l'utilisateur a accès au vote
+    $stmt = $conn->prepare("SELECT * FROM vote WHERE id = ? AND IN (SELECT ag_id FROM user_ag WHERE user_id = ?)");
+    $stmt->bind_param("ii", $vote_id, $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows == 0) {
+        echo "Vous n'avez pas accès à ce vote";
+        http_response_code(403);
+        exit();
+    }
+
 
     // recupere les differents choix pour un vote
     $stmt = $conn->prepare("SELECT * FROM choix WHERE vote_id = ?");
