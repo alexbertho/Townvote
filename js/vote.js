@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const optionsList = document.getElementById('options-list');
   const graphCanvas = document.getElementById('graph-canvas');
   const ctx = graphCanvas.getContext('2d');
-  
+  let voteCounts = [];
 
   // Add event listeners to list items
   Array.prototype.forEach.call(optionsList.children, (li, index) => {
