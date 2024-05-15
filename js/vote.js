@@ -16,21 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Update graph function
   function updateGraph() {
-    ctx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
-
-    const totalVotes = voteCounts.reduce((a, b) => a + b, 0);
-    const centerX = graphCanvas.width / 2;
-    const centerY = graphCanvas.height / 2;
-    const radius = Math.min(centerX, centerY);
-
-
-    
     // Initialize vote counts
     voteCounts = [];
-
+    
     fetch('api/get_votes.php?vote_id=1') // Fetch vote data
-      .then(response => response.json())
-      .then(data => {
+    .then(response => response.json())
+    .then(data => {
         // console.log(data);
         // console.log(data['voteCount']);
         for (var i in data['voteCount']) {
@@ -43,12 +34,18 @@ document.addEventListener("DOMContentLoaded", function() {
           li.id = data['choix'][key]['id'];
           optionsList.appendChild(li);
         }
-
+        
         // console.log('vote counts:', voteCounts);
-      });
+    });
+      
+    ctx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
 
+    const totalVotes = voteCounts.reduce((a, b) => a + b, 0);
+    const centerX = graphCanvas.width / 2;
+    const centerY = graphCanvas.height / 2;
+    const radius = Math.min(centerX, centerY);
     let currentAngle = 0;
-
+      
 
     voteCounts.forEach((count, index) => {
       const angle = (count / totalVotes) * 2 * Math.PI;
