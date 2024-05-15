@@ -20,6 +20,15 @@ document.addEventListener("DOMContentLoaded", function() {
         optionsList.appendChild(li);
       }
       
+      Array.prototype.forEach.call(optionsList.children, (li, index) => {
+        console.log(li);
+        li.addEventListener('click', () => {
+          console.log(li.id);
+          console.log(index);
+          updateGraph();
+        });
+      });
+
       for (var i in data['voteCount']) {
         voteCounts[i] = (data['voteCount'][i]);
       }
@@ -32,15 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 
 
-  // Add event listeners to list items
-  Array.prototype.forEach.call(optionsList.children, (li, index) => {
-    console.log(li);
-    li.addEventListener('click', () => {
-      console.log(li.id);
-      console.log(index);
-      updateGraph();
-    });
-  });
+  
 
   // Update graph function
   function updateGraph() {
