@@ -84,15 +84,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  var form = document.getElementById("message-form");
-  function handleForm(event) { event.preventDefault(); } 
-  form.addEventListener('submit', handleForm);
 
   function submit(theForm) {
     console.log("submit");
     const formData = new FormData(theForm);
     console.log(formData);
-    fetch('api/send_message.php?message=$message&vote_id=1')
+    fetch('api/send_message.php?message=aaaaa&vote_id=1')
     .then(response => response.json())
     .then(data => {
       console.log(data);
