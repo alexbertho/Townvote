@@ -40,20 +40,15 @@ document.addEventListener("DOMContentLoaded", function() {
           for (var i in data['voteCount']) {
             voteCounts[i] = (data['voteCount'][i]);
           }
-          console.log('vote counts:', voteCounts);
+          // console.log('vote counts:', voteCounts);
           updateGraph();
         });
-        // location.reload() // refresh the page TEMPORARY 
         });
       });
 
       for (var i in data['voteCount']) {
         voteCounts[i] = (data['voteCount'][i]);
       }
-
-      
-
-      // console.log('vote counts:', voteCounts);
       updateGraph();
   });
   
@@ -88,7 +83,4 @@ document.addEventListener("DOMContentLoaded", function() {
       currentAngle += angle;
     });
   }
-
-  // Initialize graph
-  // updateGraph();
 });
