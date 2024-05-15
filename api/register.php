@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     require_once 'db.php';
 
-    $sql = "SELECT * FROM users WHERE login = '?'";
+    $sql = "SELECT * FROM users WHERE login = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
     } else if ($result->num_rows == 0) { // Si aucun utilisateur n'a été trouvé
 
-        $sql = "INSERT INTO clients (login, password) VALUES ('?', '?')";
+        $sql = "INSERT INTO clients (login, password) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ss", $username, $password);
         $stmt->execute();
