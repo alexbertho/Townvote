@@ -15,7 +15,30 @@
     }
 
     $buildings = [""];
-    
+    $buildings = array();
+
+    if ($_SESSION['user_id']) {
+        $user_id = $_SESSION['user_id'];
+        require_once 'db.php';
+
+        $sql = "SELECT * FROM vote WHERE ag_id IN (SELECT ag_id FROM user_ag WHERE user_id = ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        foreach ($result as $row) {
+            $buildings[] = $row;
+        }
+
+
+    } else {
+        echo "Erreur: utilisateur non connecté";
+        http_response_code(403);
+        exit(); // Terminer le script pour éviter toute exécution supplémentaire
+    }
+
 ?>
 
 <!DOCTYPE html>
