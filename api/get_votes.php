@@ -60,6 +60,18 @@ $vote = $result->fetch_assoc();
 $data = $vote;
 $data['choix'] = $choix;
 
+
+$stmt = $conn->prepare("SELECT `choix_id`, COUNT(*) AS `count` FROM `user_vote` WHERE `vote_id` = ? GROUP BY `choix_id`");
+$stmt->bind_param("i", $vote_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$stmt->close();
+
+$data['voteCount'] = array();
+while ($row = $result->fetch_assoc()) {
+    $data['voteCount'][$row['choix_id']] = $row['count'];
+}
+
 header('Content-Type: application/json');
 echo json_encode($data);
 $conn->close();
