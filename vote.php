@@ -42,6 +42,12 @@
                     <canvas id="graph-canvas" width="400" height="400"></canvas>
                 </div>
             </div>
+            <div class="message-container">
+                <form id="message-form">
+                    <textarea id="message" name="message" placeholder="Votre message"></textarea>
+                    <input type="submit" value="Envoyer">
+                </form>
+            </div>
     </body>
 
 </html>
