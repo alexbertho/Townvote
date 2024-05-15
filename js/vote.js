@@ -3,11 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
   const optionsList = document.getElementById('options-list');
   const graphCanvas = document.getElementById('graph-canvas');
   const ctx = graphCanvas.getContext('2d');
+  
+  // Initialize vote counts
+  let voteCounts = [10, 0, 0, 0, 0];
 
   fetch('api/get_votes.php?vote_id=1') // Fetch vote data
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      console.log('vote counts:', data);
       // Update vote counts
       voteCounts = data;
       updateGraph();
@@ -15,8 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
   
 
 
-  // Initialize vote counts
-  let voteCounts = [10, 0, 0, 0, 0];
 
   // Add event listeners to list items
   Array.prototype.forEach.call(optionsList.children, (li, index) => {
