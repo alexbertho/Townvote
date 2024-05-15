@@ -67,10 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         } else {
             $data = [
-                'user_id' => $user_id,
-                'vote_id' => $vote_id,
-                'choix_id' => $choix_id,
-                'a supp' => $stmt->affected_rows,
                 'success' => false,
                 'message' => 'Erreur lors de l\'enregistrement du vote'
             ];
