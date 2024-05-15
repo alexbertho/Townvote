@@ -30,9 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $sql = "INSERT INTO clients (login, password) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
-        if ($stmt === false) {
-            die("Erreur de préparation : " . $conn->error);
-        }
         $stmt->bind_param("ss", $username, $password);
         $stmt->execute();
 
