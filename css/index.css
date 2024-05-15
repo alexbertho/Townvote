@@ -9,27 +9,38 @@
     overflow: auto;
     flex-direction: row;
 }
- 
-.flexcontainer > div {
+
+.frame {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 8em;
-    height: 8em;
+    width: 10em;
+    height: 11.5em;
     margin: 5px;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.frame > h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+}
+
+
+
+.picFrame {
     background-color: whitesmoke;
     border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    height: inherit;
 }
 
-
-a {
-    display: inline-block;
-}
-
-
-.flexcontainer img {
-    display: block;
+.picFrame img {
     width: 90%;
     height: 90%;
-    margin: 0 auto;
 }

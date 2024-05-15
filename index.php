@@ -8,11 +8,13 @@
             // $desciption = $building['description'];
             $adresse = $building['adresse'];
             $html .= "
-            <div>
-                <a href='vote.php?id=$id'>
+            <div class='frame'>
+                <div class='picFrame'>
                     <img src='img/building.png'/>
-                </a>
-            </div>";
+                </div>
+            <h3>$adresse</h3>
+            </div>
+            ";
         }
         return $html;
     }
