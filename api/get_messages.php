@@ -45,22 +45,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $sql = "SELECT `login`,`username`,`message` FROM `message` INNER JOIN `users` ON `message`.`user_id` = `users`.`id` WHERE `ag_id`='$ag_id'";
     $result = $conn->query($sql);
     $data = array();
-    // echo $result->num_rows;
-    // echo "<br>";
     
     if ($result->num_rows > 0) {
-        $data = $result->fetch_all(MYSQLI_ASSOC);
-        // echo "Message trouvé";
-        // echo "<ul>";
-        // foreach ($result as $row) {
-        //     if (isset($row['username'])) {
-        //         $name = $row['username'];
-        //     } else {
-        //         $name = $row['login'];
-        //     }
-        //     echo "<li>" . $row['message'] . " from : ". $name . "</li>";
-        // }
-        // echo "</ul>";
+        // $data = $result->fetch_all(MYSQLI_ASSOC);
+        foreach ($result as $row) {
+            $miniData = ['message' => $row['message']];
+            if ($row['username'] == null) {
+                $miniData['username'] = $row['login'];
+            } else {
+                $miniData['username'] = $row['username'];
+            }
+            $data[] = $miniData;            
+        }
 
     } else {
         echo "Aucun message trouvé";
