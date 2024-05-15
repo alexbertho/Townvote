@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     require_once 'db.php';
 
+    // ! verifier si l'utilisateur est connecté et a accès aux messages
 
     $sql = "SELECT * FROM `message` INNER JOIN `users` ON `message`.`user_id` = `users`.`id` WHERE `ag_id`='$ag_id'";
     $result = $conn->query($sql);
