@@ -17,7 +17,11 @@ document.addEventListener("DOMContentLoaded", function() {
       voteCounts = [];
       data['voteCount']
       console.log(data['voteCount']);
-
+      var i = 0;
+      while (data['voteCount'][i] != null) {
+        voteCounts.push(data['voteCount'][i]);
+        i++;
+      }
 
       console.log('vote counts:', voteCounts);
       updateGraph();
