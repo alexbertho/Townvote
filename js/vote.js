@@ -33,16 +33,8 @@ document.addEventListener("DOMContentLoaded", function() {
           }); 
         
         
-        voteCounts = []
-        fetch('api/get_votes.php?vote_id=1') // Fetch vote data
-        .then(response => response.json())
-        .then(data => {
-          for (var i in data['voteCount']) {
-            voteCounts[i] = (data['voteCount'][i]);
-          }
-          // console.log('vote counts:', voteCounts);
-          updateGraph();
-        });
+        
+        updateGraph();
         });
       });
 
@@ -59,21 +51,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Update graph function
   function updateGraph() {
-
-
-    console.log("update");
-
-    ctx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
-
-    const totalVotes = voteCounts.reduce((a, b) => a + b, 0);
-    const centerX = graphCanvas.width / 2;
-    const centerY = graphCanvas.height / 2;
-    const radius = Math.min(centerX, centerY);
-
-    let currentAngle = 0;
-
-
-    voteCounts.forEach((count, index) => {
+    voteCounts = []
+    fetch('api/get_votes.php?vote_id=1') // Fetch vote data
+    .then(response => response.json())
+    .then(data => {
+      for (var i in data['voteCount']) {
+        voteCounts[i] = (data['voteCount'][i]);
+      }
+      // console.log('vote counts:', voteCounts);
+      
+      console.log("update");
+      
+      ctx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
+      
+      const totalVotes = voteCounts.reduce((a, b) => a + b, 0);
+      const centerX = graphCanvas.width / 2;
+      const centerY = graphCanvas.height / 2;
+      const radius = Math.min(centerX, centerY);
+      
+      let currentAngle = 0;
+      
+      
+      voteCounts.forEach((count, index) => {
       const angle = (count / totalVotes) * 2 * Math.PI;
       ctx.fillStyle = `hsl(${index * 30}, 50%, 50%)`;
       ctx.beginPath();
@@ -81,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
       ctx.lineTo(centerX, centerY);
       ctx.fill();
       currentAngle += angle;
+      });
     });
   }
 
