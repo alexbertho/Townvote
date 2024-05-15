@@ -19,7 +19,7 @@
 
     if ($_SESSION['user_id']) {
         $user_id = $_SESSION['user_id'];
-        require_once 'db.php';
+        require_once 'api/db.php';
 
         $sql = "SELECT * FROM vote WHERE ag_id IN (SELECT ag_id FROM user_ag WHERE user_id = ?)";
         $stmt = $conn->prepare($sql);
