@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
           fetch('api/vote.php?vote_id=1&choix_id=' + li.id, {method: 'GET'})
           .then(response => response.json())
           .then(data => {
+            //! add a message to the user
             console.log(data)
-            // console.log(data['voteCount']);
           }); 
           updateGraph();
         });
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //   console.log('vote counts:', voteCounts);
     // });
 
-
+    console.log("update");
 
     ctx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
 
