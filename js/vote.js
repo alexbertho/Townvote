@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
       for (var i in data['voteCount']) {
         voteCounts[i] = (data['voteCount'][i]);
       }
+      console.log('vote counts:', voteCounts);
     });
 
 
