@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
       
       console.log("update");
       
-      ctx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
       
       const totalVotes = voteCounts.reduce((a, b) => a + b, 0);
       const centerX = graphCanvas.width / 2;
@@ -72,14 +71,15 @@ document.addEventListener("DOMContentLoaded", function() {
       let currentAngle = 0;
       
       
+      ctx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
       voteCounts.forEach((count, index) => {
-      const angle = (count / totalVotes) * 2 * Math.PI;
-      ctx.fillStyle = `hsl(${index * 30}, 50%, 50%)`;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + angle);
-      ctx.lineTo(centerX, centerY);
-      ctx.fill();
-      currentAngle += angle;
+        const angle = (count / totalVotes) * 2 * Math.PI;
+        ctx.fillStyle = `hsl(${index * 30}, 50%, 50%)`;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + angle);
+        ctx.lineTo(centerX, centerY);
+        ctx.fill();
+        currentAngle += angle;
       });
     });
   }
