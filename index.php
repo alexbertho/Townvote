@@ -17,10 +17,9 @@
         return $html;
     }
 
-    $buildings = [""];
     $buildings = array();
 
-    if ($_SESSION['user_id']) {
+    if (isset($_SESSION['user_id'])) {
         $user_id = $_SESSION['user_id'];
         require_once 'api/db.php';
 
