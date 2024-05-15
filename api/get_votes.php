@@ -23,8 +23,13 @@ $stmt->bind_param("ii", $vote_id, $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 if ($result->num_rows == 0) {
-    echo "Vous n'avez pas accès à ce vote";
-    http_response_code(403);
+    $data = [
+        'success' => false,
+        'message' => 'Vous n\'avez pas accès à ce vote'
+    ];
+    header('Content-Type: application/json');
+    echo json_encode($data);
+    $conn->close();
     exit();
 }
 
