@@ -4,9 +4,10 @@
     function generateBuildings($buildings) {
         $html = '';
         foreach ($buildings as $building) {
+            id = $building['ag_id'];
             $html .= "
             <div>
-                <a href='vote.php?id='>
+                <a href='vote.php?id=$id'>
                     <img src='img/building.png'/>
                 </a>
             </div>";
@@ -21,7 +22,7 @@
         $user_id = $_SESSION['user_id'];
         require_once 'api/db.php';
 
-        $sql = "SELECT * FROM vote WHERE ag_id IN (SELECT ag_id FROM user_ag WHERE user_id = ?)";
+        $sql = "SELECT * FROM ag WHERE id IN (SELECT ag_id FROM user_ag WHERE user_id = ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
