@@ -89,6 +89,15 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("submit");
     const formData = new FormData(theForm);
     console.log(formData);
+    fetch('api/send_message.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    
+    });
   }
 
 });
