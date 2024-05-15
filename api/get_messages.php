@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         } else {
             $from = 0;
         }
-        
+
     } else {
         echo "Erreur: ag_id non défini";
         http_response_code(403);
@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     
 
-    $sql = "SELECT `id`,`login`,`username`,`message` FROM `message` INNER JOIN `users` ON `message`.`user_id` = `users`.`id` WHERE `ag_id`=? and 'id' > ? ORDER BY `id` DESC LIMIT 10";
+    $sql = "SELECT `message`.`id`,`login`,`username`,`message` FROM `message` INNER JOIN `users` ON `message`.`user_id` = `users`.`id` WHERE `ag_id`=? AND `message`.`id` > 0 ORDER BY `message`.`id` LIMIT 10";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $ag_id, $from);
+    $stmt->bind_param("i", $ag_id);
     $stmt->execute();
     $result = $stmt->get_result();
     $stmt->close();
