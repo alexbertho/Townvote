@@ -5,6 +5,8 @@
         $html = '';
         foreach ($buildings as $building) {
             $id = $building['id'];
+            // $desciption = $building['description'];
+            $adresse = $building['adresse'];
             $html .= "
             <div>
                 <a href='vote.php?id=$id'>
