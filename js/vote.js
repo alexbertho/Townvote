@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   // Initialize vote counts
-  let voteCounts = [0, 0, 0, 0, 0];
+  let voteCounts = [10, 0, 0, 0, 0];
 
   // Add event listeners to list items
   Array.prototype.forEach.call(optionsList.children, (li, index) => {
