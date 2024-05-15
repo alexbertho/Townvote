@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once 'db.php';
 
     $sql = "SELECT * FROM users WHERE login = ?";
+    $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);  // fonction pour eviter les injections SQL
 
     $result = $conn->query($sql);
