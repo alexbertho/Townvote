@@ -24,16 +24,16 @@ $stmt = $conn->prepare("SELECT * FROM ag WHERE id = ? AND id IN (SELECT ag_id FR
 $stmt->bind_param("ii", $ag_id, $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
-if ($result->num_rows == 0) {
-    $data = [
-        'success' => false,
-        'message' => 'Vous n\'avez pas accès à ce vote'
-    ];
-    header('Content-Type: application/json');
-    echo json_encode($data);
-    $conn->close();
-    exit();
-}
+// if ($result->num_rows == 0) {
+//     $data = [
+//         'success' => false,
+//         'message' => 'Vous n\'avez pas accès à ce vote'
+//     ];
+//     header('Content-Type: application/json');
+//     echo json_encode($data);
+//     $conn->close();
+//     exit();
+// }
 
 
 $stmt = $conn->prepare("INSERT INTO message (message, vote_id) VALUES (?, ?)");
