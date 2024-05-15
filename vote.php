@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="message-container">
-                <form id="message-form">
+                <form id="message-form" action="#" onsubmit="return submit(this);">
                     <textarea id="message" name="message" placeholder="Votre message"></textarea>
                     <input type="submit" value="Envoyer">
                 </form>
