@@ -33,17 +33,17 @@ document.addEventListener("DOMContentLoaded", function() {
           }); 
         
         
-        // voteCounts = []
-        // fetch('api/get_votes.php?vote_id=1') // Fetch vote data
-        // .then(response => response.json())
-        // .then(data => {
-        //   for (var i in data['voteCount']) {
-        //     voteCounts[i] = (data['voteCount'][i]);
-        //   }
-        //   console.log('vote counts:', voteCounts);
-        // });
-        // updateGraph();
-        location.reload() // refresh the page TEMPORARY 
+        voteCounts = []
+        fetch('api/get_votes.php?vote_id=1') // Fetch vote data
+        .then(response => response.json())
+        .then(data => {
+          for (var i in data['voteCount']) {
+            voteCounts[i] = (data['voteCount'][i]);
+          }
+          console.log('vote counts:', voteCounts);
+          updateGraph();
+        });
+        // location.reload() // refresh the page TEMPORARY 
         });
       });
 
