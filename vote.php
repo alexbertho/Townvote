@@ -31,11 +31,11 @@
                 <div class="voting-system">
                     <div class="list-container">
                         <ul id="options-list">
-                            <li>Option 1</li>
+                            <!-- <li>Option 1</li>
                             <li>Option 2</li>
                             <li>Option 3</li>
                             <li>Option 4</li>
-                            <li>Option 5</li>
+                            <li>Option 5</li> -->
                         </ul>
                     </div>
                     <div class="graph-container">
