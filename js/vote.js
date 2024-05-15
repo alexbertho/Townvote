@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(li);
         li.addEventListener('click', () => {
           // console.log(li.id);
-          fetch('api/vote.php?vote_id=1&choix_id=' + li.id, {method: 'POST'})
+
+          fetch('api/vote.php?vote_id=1&choix_id=' + li.id, {method: 'GET'})
           .then(response => response.json())
           .then(data => {
             console.log(data)
