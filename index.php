@@ -5,9 +5,14 @@
         $html = '';
         foreach ($buildings as $building) {
             $id = $building['ag_id'];
+            foreach ($building as $key => $value) {
+                if ($key == 'ag_id') {
+                    continue;
+                }
+                $html .= "<p>$key: $value</p>";
+            }
             $html .= "
             <div>
-                <h3>{$building}</h3>
                 <a href='vote.php?id=$id'>
                     <img src='img/building.png'/>
                 </a>
