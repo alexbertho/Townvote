@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   // Add event listeners to list items
-  // Array.prototype.forEach.call(optionsList.children, (li, index) => {
-  //   li.addEventListener('click', () => {
-  //     voteCounts[index]++;
-  //     // console.log(voteCounts);
-  //     updateGraph();
-  //   });
-  // });
+  Array.prototype.forEach.call(optionsList.children, (li, index) => {
+    li.addEventListener('click', () => {
+      console.log(li.id);
+      console.log(index);
+      updateGraph();
+    });
+  });
 
   // Update graph function
   function updateGraph() {
