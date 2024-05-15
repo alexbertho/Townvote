@@ -86,5 +86,5 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Initialize graph
-  updateGraph();
+  // updateGraph();
 });
