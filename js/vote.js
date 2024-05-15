@@ -10,11 +10,12 @@ document.addEventListener("DOMContentLoaded", function() {
   fetch('api/get_votes.php?vote_id=1') // Fetch vote data
     .then(response => response.json())
     .then(data => {
-      console.log('vote counts:', data);
+      console.log(data);
       // Update vote counts
 
       voteCounts = data['voteCount'];
       updateGraph();
+      console.log('vote counts:', voteCounts);
     });
   
 
