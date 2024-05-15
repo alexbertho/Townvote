@@ -4,30 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const graphCanvas = document.getElementById('graph-canvas');
   const ctx = graphCanvas.getContext('2d');
   
-  // Initialize vote counts
-  voteCounts = [];
-
-  fetch('api/get_votes.php?vote_id=1') // Fetch vote data
-    .then(response => response.json())
-    .then(data => {
-      // console.log(data);
-      // console.log(data['voteCount']);
-      for (var i in data['voteCount']) {
-        voteCounts[i] = (data['voteCount'][i]);
-      }
-      
-      for (var key in data['choix']) {
-        const li = document.createElement('li');
-        li.textContent = data['choix'][key]['desc'];
-        optionsList.appendChild(li);
-      }
-
-      // console.log('vote counts:', voteCounts);
-      updateGraph();
-  });
-  
-  
-
 
   // Add event listeners to list items
   Array.prototype.forEach.call(optionsList.children, (li, index) => {
@@ -46,6 +22,30 @@ document.addEventListener("DOMContentLoaded", function() {
     const centerX = graphCanvas.width / 2;
     const centerY = graphCanvas.height / 2;
     const radius = Math.min(centerX, centerY);
+
+
+    
+    // Initialize vote counts
+    voteCounts = [];
+
+    fetch('api/get_votes.php?vote_id=1') // Fetch vote data
+      .then(response => response.json())
+      .then(data => {
+        // console.log(data);
+        // console.log(data['voteCount']);
+        for (var i in data['voteCount']) {
+          voteCounts[i] = (data['voteCount'][i]);
+        }
+
+        for (var key in data['choix']) {
+          const li = document.createElement('li');
+          li.textContent = data['choix'][key]['desc'];
+          li.id = data['choix'][key]['id'];
+          optionsList.appendChild(li);
+        }
+
+        // console.log('vote counts:', voteCounts);
+      });
 
     let currentAngle = 0;
 
