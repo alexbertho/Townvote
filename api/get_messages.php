@@ -1,5 +1,10 @@
 <?php
 session_start();
+if ($_SESSION['user_id'] == null) {
+    header("Location: login.php");
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['ag_id'])) {
         $ag_id = $_GET['ag_id'];
