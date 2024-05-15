@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     
 
-    $sql = "SELECT `login`,`username`,`message` FROM `message` INNER JOIN `users` ON `message`.`user_id` = `users`.`id` WHERE `ag_id`=? and 'id' > ? ORDER BY `id` DESC LIMIT 10";
+    $sql = "SELECT `id`,`login`,`username`,`message` FROM `message` INNER JOIN `users` ON `message`.`user_id` = `users`.`id` WHERE `ag_id`=? and 'id' > ? ORDER BY `id` DESC LIMIT 10";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $ag_id, $from);
     $stmt->execute();
