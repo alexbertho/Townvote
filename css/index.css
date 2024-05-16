@@ -1,0 +1,52 @@
+.flexcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    flex-direction: row;
+}
+
+.frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 11.5em;
+    margin: 5px;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+
+.picFrame {
+    background-color: whitesmoke;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    height: inherit;
+
+}
+
+.frame > h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    max-height: 11.5px; 
+    padding: 0.5em; 
+}
+
+.picFrame:hover {
+    cursor: pointer;
+}
+
+.picFrame img {
+    width: 90%;
+    height: 90%;
+}

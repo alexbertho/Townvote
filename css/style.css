@@ -1,0 +1,164 @@
+* { padding: 0; margin: 0; }
+
+html, body { 
+    height: 100%;
+    background: rgb(87,79,232);
+    background: linear-gradient(90deg, rgba(87,79,232,1) 13%, rgba(21,145,201,1) 48%, rgba(0,212,255,1) 100%);
+}
+
+.flex-container {
+    display: flex;
+
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;  
+
+    height: inherit;
+    gap: 5px;
+
+}
+
+.flex-container > div{
+    border-radius: 5px;
+    padding: 8px;
+    width: 15em;
+}
+
+.flex-container > .login-form > form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > hr {
+    margin-top: 0.35em;
+    border: 1px solid #fff;
+}
+
+.batiment{
+    background-color: #fff;
+    height: 4em;
+    width: 6em;
+}
+
+.loginbutton {
+    border: none;
+    background-color: #fff;
+    height: 2em;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-top: 0.5em;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+.loginbutton:hover {
+    background-color: #f0f0f0;
+    color: #333; 
+    cursor: pointer;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-weight: 600;
+}
+
+input:focus {
+    outline: none;
+}
+
+::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+header {
+    position: absolute;
+    text-align: center;
+    margin-top: 1em;
+    width: 100%;
+}
+
+header > hr {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #fff;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header > h1 {
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+
+header > h2 {
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+
+.icon-login {
+    display: flex;
+    border: 3px solid rgba(0,212,255,1);
+    border-radius: 5px;
+
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+
+}
+
+.icon-login > img {
+    width: 2.5em;
+}
+
+.error-box {
+    background-image: linear-gradient(to bottom, #df6060, #e62a11);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: none;
+    text-align: center;
+    word-wrap: break-word;
+    overflow: auto; /* Add this line */
+
+}
+
+.error-text {
+    font-size: 0.8em;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: black;
+    word-break: normal; /* Add this line */
+}
+
+.error-box.show {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
