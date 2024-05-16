@@ -23,3 +23,6 @@ Ce projet utilise les technologies suivantes :
 - **PHP :** Pour la gestion des sessions utilisateur et la génération de contenu dynamique.
 - **AJAX :** Pour les mises à jour asynchrones des résultats des sondages en temps réel.
 - **MySQL :** Pour le stockage des données des utilisateurs et des sondages.
+
+## Diagramme structure de TownVote (endpoints)
+![image](https://github.com/Acerlations/Townvote/blob/dev/diagramme.PNG)
